@@ -29,10 +29,10 @@ public class CgRefCodeController {
 	}
 	
 
-	@RequestMapping(method = RequestMethod.GET , value="/cgrefcodes/{domain}/" )
-        public void FindByDomain (@PathVariable("domain") String domain ) {
+	@RequestMapping(method = RequestMethod.GET , value="/{domain}" )
+        public List<CgRefCode> FindByDomain (@PathVariable("domain") String domain ) {
         	
-        	this.business.FindByDomain(domain);
+        	return this.business.FindByDomain(domain);
         }
 
 }
