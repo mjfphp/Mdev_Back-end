@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.univbrest.dosi.bean.Etudiant;
+import fr.univbrest.dosi.bean.Promotion;
+import fr.univbrest.dosi.bean.PromotionPK;
 import fr.univbrest.dosi.business.EtudiantBusiness;
 
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins="localhost:3333")
 @RequestMapping("/etudiants")
 public class EtudiantController {
 
@@ -36,7 +38,6 @@ public class EtudiantController {
 
 	public List<Etudiant> GetAllEtudiants() {
 
-		//return null;
 		return business.GetAllEtudiants();
 
 	}
@@ -44,9 +45,18 @@ public class EtudiantController {
 	@RequestMapping(method = RequestMethod.GET , value="/{NO_ETUDIANT}" )
         public void deleteEtudiant (@PathVariable("NO_ETUDIANT") String CNE ) {
         	
-        	//this.business.deleteEtudiant(CNE);
+        	this.business.deleteEtudiant(CNE);
         }
 	
-
+	@RequestMapping(method = RequestMethod.GET , value="/promotion/{code_formation}/{annee_univ}" )
+	 public List<Etudiant> GetEtudiantPromotions (@PathVariable("code_formation") String CF,@PathVariable("annee_univ") String AU ) {
+    	Promotion p = new Promotion();
+    	PromotionPK pk = new PromotionPK();
+    	pk.setAnneeUniversitaire(AU);
+    	pk.setCodeFormation(CF);
+    	p.setId(pk);
+    	
+		return this.business.GetEtudiantPromotions(p);
+    }
 
 }

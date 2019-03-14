@@ -27,4 +27,10 @@ public class CgRefCodeBusinessJPA implements CgRefCodeBusiness {
 		return (List<CgRefCode>) repo.findAll();
 	}
 
+	@Override
+	public List<CgRefCode> FindByDomain( String domain) {
+		// TODO Auto-generated method stub
+		return repo.findByRvDomain(domain);
+	}
+
 }
