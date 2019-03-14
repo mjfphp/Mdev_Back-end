@@ -21,5 +21,7 @@
 		<class>fr.univbrest.dosi.bean.RubriqueQuestionPK</class>
 		<class>fr.univbrest.dosi.bean.UniteEnseignement</class>
 		<class>fr.univbrest.dosi.bean.UniteEnseignementPK</class>
+		<class>fr.univbrest.dosi.bean.Authentification</class>
+		<class>fr.univbrest.dosi.bean.CgRefCode</class>
 	</persistence-unit>
 </persistence>
