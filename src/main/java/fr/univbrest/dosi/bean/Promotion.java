@@ -2,6 +2,9 @@ package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.hibernate.annotations.NamedNativeQuery;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
