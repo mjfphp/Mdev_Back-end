@@ -15,9 +15,9 @@ public class CgRefCode implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID_CGRC")
-	private int idCgrc;
+//	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@Column(name="ID_CGRC")
+//	private int idCgrc;
 
 	@Column(name="RV_ABBREVIATION")
 	private String rvAbbreviation;
@@ -37,13 +37,13 @@ public class CgRefCode implements Serializable {
 	public CgRefCode() {
 	}
 
-	public int getIdCgrc() {
-		return this.idCgrc;
-	}
-
-	public void setIdCgrc(int idCgrc) {
-		this.idCgrc = idCgrc;
-	}
+//	public int getIdCgrc() {
+//		return this.idCgrc;
+//	}
+//
+//	public void setIdCgrc(int idCgrc) {
+//		this.idCgrc = idCgrc;
+//	}
 
 	public String getRvAbbreviation() {
 		return this.rvAbbreviation;
