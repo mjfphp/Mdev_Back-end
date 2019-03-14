@@ -7,18 +7,34 @@ import org.springframework.stereotype.Service;
 
 import fr.univbrest.dosi.bean.Etudiant;
 import fr.univbrest.dosi.repository.EtudiantRepository;
+import javax.persistence.Entity;
 
 @Service
-public class EtudiantBusinessJPA implements EtudiantBusiness{
+public class EtudiantBusinessJPA implements EtudiantBusiness {
 
-	EtudiantRepository etudiantRepo;
+	EtudiantRepository etudiantrepo; 
+	
 	@Autowired
 	public EtudiantBusinessJPA(EtudiantRepository repos) {
-		this.etudiantRepo = repos;
+		this.etudiantrepo = repos;
 	}
-	
 	@Override
-	public List<Etudiant> recupererTousLesEtudiants() {
-		return (List<Etudiant>) etudiantRepo.findAll();
+	public Etudiant CreateEtudiant(Etudiant etud) {
+		// TODO Auto-generated method stub
+		return etudiantrepo.save(etud);
 	}
+
+	@Override
+	public List<Etudiant> GetAllEtudiants() {
+		// TODO Auto-generated method stub
+		return (List<Etudiant>) etudiantrepo.findAll();
+	}
+
+	@Override
+	public void deleteEtudiant(String NO_ETUDIANT) {
+		// TODO Auto-generated method stub
+		etudiantrepo.delete(NO_ETUDIANT);
+		
+	}
+
 }

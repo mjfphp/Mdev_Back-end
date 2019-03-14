@@ -6,6 +6,12 @@ import fr.univbrest.dosi.bean.Etudiant;
 
 public interface EtudiantBusiness {
 
-	List<Etudiant> recupererTousLesEtudiants();
+	public Etudiant CreateEtudiant(Etudiant etud) ;
+	
+
+	public List<Etudiant> GetAllEtudiants();
+
+
+	void deleteEtudiant(String NO_ETUDIANT);
 
 }

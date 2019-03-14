@@ -9,7 +9,7 @@ import fr.univbrest.dosi.bean.Candidat;
 import fr.univbrest.dosi.business.CandidatBusiness;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:5500", maxAge = 3600)
+@CrossOrigin
 @RequestMapping("/candidats")
 public class CandidatController {
 	private CandidatBusiness candidatBusiness;
