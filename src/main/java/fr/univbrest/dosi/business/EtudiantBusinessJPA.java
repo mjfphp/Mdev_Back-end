@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.univbrest.dosi.bean.Etudiant;
+import fr.univbrest.dosi.bean.Promotion;
+import fr.univbrest.dosi.bean.PromotionPK;
 import fr.univbrest.dosi.repository.EtudiantRepository;
 import javax.persistence.Entity;
 
@@ -36,5 +38,11 @@ public class EtudiantBusinessJPA implements EtudiantBusiness {
 		etudiantrepo.delete(NO_ETUDIANT);
 		
 	}
+	@Override
+	public List<Etudiant> GetEtudiantPromotions(Promotion p) {
+		// TODO Auto-generated method stub
+		return (List<Etudiant>)etudiantrepo.findByPromotion(p);
+	}
+
 
 }
