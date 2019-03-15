@@ -44,4 +44,5 @@ public class FormationController {
 	public List<Promotion> PromotionByFormation(@PathVariable String idFormation) {
 		return formationBusiness.PromotionByFormation(idFormation);
 	}
+	
 }

@@ -8,8 +8,8 @@ import java.util.Date;
 /**
  * The persistent class for the formation database table.
  * 
- */
-@Entity
+ */ 
+@Entity	
 @Table(name="formation")
 @NamedQuery(name="Formation.findAll", query="SELECT f FROM Formation f")
 public class Formation implements Serializable {
@@ -96,6 +96,15 @@ public class Formation implements Serializable {
 	}
 
 	public void setNomFormation(String nomFormation) {
+		this.nomFormation = nomFormation;
+	}
+
+	public Formation(String codeFormation,String diplome, String doubleDiplome,
+			String nomFormation) {
+		super();
+		this.codeFormation = codeFormation;
+		this.diplome = diplome;
+		this.doubleDiplome = doubleDiplome;
 		this.nomFormation = nomFormation;
 	}
 
