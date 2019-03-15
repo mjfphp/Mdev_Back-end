@@ -13,7 +13,6 @@ import fr.univbrest.dosi.bean.CgRefCode;
 import fr.univbrest.dosi.business.CgRefCodeBusiness;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/cgrefcodes")
 public class CgRefCodeController {
 	CgRefCodeBusiness business;

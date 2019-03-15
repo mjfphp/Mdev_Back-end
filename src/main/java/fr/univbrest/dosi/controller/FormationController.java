@@ -15,7 +15,6 @@ import fr.univbrest.dosi.bean.Promotion;
 import fr.univbrest.dosi.business.FormationBusiness;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/formations")
 public class FormationController {
 
