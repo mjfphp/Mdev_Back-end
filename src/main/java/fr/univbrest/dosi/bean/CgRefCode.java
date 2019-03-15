@@ -10,7 +10,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="cg_ref_codes")
-
 @NamedQuery(name="CgRefCode.findAll", query="SELECT c FROM CgRefCode c")
 public class CgRefCode implements Serializable {
 	private static final long serialVersionUID = 1L;

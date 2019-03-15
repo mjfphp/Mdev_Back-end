@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import fr.univbrest.dosi.bean.Promotion;
+import fr.univbrest.dosi.bean.PromotionPK;
 import fr.univbrest.dosi.repository.PromotionRepository;
 
 @Service
@@ -16,11 +17,14 @@ public class PromotionBusinessJPA implements PromotionBusiness {
 		this.promotionRepository = repos;
 	}
 	
-	
 	@Override
 	public List<Promotion> GetAllPromotions() {
-		// TODO Auto-generated method stub
 		return  (List<Promotion>) promotionRepository.findAll();
 	}
 
+	@Override
+	public Promotion recupererPromotionParID(PromotionPK promotionPK) {
+		return this.promotionRepository.findOne(promotionPK);
+	}
+	
 }
