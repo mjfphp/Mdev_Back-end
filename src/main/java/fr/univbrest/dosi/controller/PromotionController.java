@@ -14,8 +14,7 @@ import fr.univbrest.dosi.bean.PromotionPK;
 import fr.univbrest.dosi.business.PromotionBusiness;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3333", maxAge = 3600)
-
+@CrossOrigin(origins = "http://localhost:5500", maxAge = 3600)
 @RequestMapping("/promotions")
 
 public class PromotionController {
