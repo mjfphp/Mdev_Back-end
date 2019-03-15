@@ -39,7 +39,7 @@ public class FormationController {
 		public Formation AddFormation(@RequestBody Formation formation) {
 			return formationBusiness.AddFormation(formation);
 		}
-	// method to get Formation By id
+	// method to get All Promotions of Formation By idFormation
 	@RequestMapping(value = "{idFormation}/promotions", method = RequestMethod.GET)
 	public List<Promotion> PromotionByFormation(@PathVariable String idFormation) {
 		return formationBusiness.PromotionByFormation(idFormation);
