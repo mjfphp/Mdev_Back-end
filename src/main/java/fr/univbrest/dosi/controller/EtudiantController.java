@@ -17,7 +17,7 @@ import fr.univbrest.dosi.business.EtudiantBusiness;
 
 
 @RestController
-@CrossOrigin(origins="localhost:3333")
+@CrossOrigin(origins = "http://localhost:3333", maxAge = 3600)
 @RequestMapping("/etudiants")
 public class EtudiantController {
 

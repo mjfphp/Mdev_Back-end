@@ -15,7 +15,7 @@ import fr.univbrest.dosi.bean.Promotion;
 import fr.univbrest.dosi.business.FormationBusiness;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3333", maxAge = 3600)
 @RequestMapping("/formations")
 public class FormationController {
 

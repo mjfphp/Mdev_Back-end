@@ -13,7 +13,7 @@ import fr.univbrest.dosi.bean.CgRefCode;
 import fr.univbrest.dosi.business.CgRefCodeBusiness;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3333", maxAge = 3600)
 @RequestMapping("/cgrefcodes")
 public class CgRefCodeController {
 	CgRefCodeBusiness business;
