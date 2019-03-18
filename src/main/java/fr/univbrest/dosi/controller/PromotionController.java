@@ -15,7 +15,6 @@ import fr.univbrest.dosi.business.PromotionBusiness;
 
 @RestController
 @RequestMapping("/promotions")
-@CrossOrigin
 public class PromotionController {
 
 	private PromotionBusiness business;
