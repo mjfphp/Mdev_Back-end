@@ -8,17 +8,21 @@ import fr.univbrest.dosi.bean.PromotionPK;
 
 public interface EtudiantBusiness {
 
+	// fonction de creation de l'objet etudiant
+	
 	public Etudiant CreateEtudiant(Etudiant etud) ;
 	
 
- 
-	void deleteEtudiant(String NO_ETUDIANT);
+ // fonction de suppression de l'objet etudiant selon son ID
+	
+	public void deleteEtudiant(String NO_ETUDIANT);
 
+ // fonction qui retourne une liste des etudiants selon une promotion donnee 
+	
+	public List<Etudiant> GetEtudiantPromotions(Promotion p);
 
-	List<Etudiant> GetEtudiantPromotions(Promotion p);
+// fonction qui retourne une liste de tous les etudiants
 
-
-
-	List<Etudiant> GetAllEtudiants();
+	public List<Etudiant> GetAllEtudiants();
 
 }

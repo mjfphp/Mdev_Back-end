@@ -15,24 +15,37 @@ import fr.univbrest.dosi.bean.Promotion;
 import fr.univbrest.dosi.bean.PromotionPK;
 import fr.univbrest.dosi.business.EtudiantBusiness;
 
-
+/**
+ * 
+ * 
+ * Etudiant Controller 
+ * 
+ * **/
 @RestController
 @RequestMapping("/etudiants")
 public class EtudiantController {
 
+	// Declaration de notre Etudiantbusiness
+	
 	private EtudiantBusiness business;
 
+	// Faire la laison entre notre controller et le Etudiantbusiness
+	
 	@Autowired
 	public EtudiantController(EtudiantBusiness business) {
 		this.business = business;
 	}
 
+	// L'ajout d'un objet etudiant .
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public Etudiant CreateEtudiant(@RequestBody Etudiant etud) {
 
 		return business.CreateEtudiant(etud);
 	}
 
+	// Affichage de tous  etudiants 
+	
 	@RequestMapping(method = RequestMethod.GET)
 
 	public List<Etudiant> GetAllEtudiants() {
@@ -41,11 +54,15 @@ public class EtudiantController {
 
 	}
 
+	// Affichage de l'etudiant selon son ID
+	
 	@RequestMapping(method = RequestMethod.GET , value="/{NO_ETUDIANT}" )
         public void deleteEtudiant (@PathVariable("NO_ETUDIANT") String CNE ) {
         	
         	this.business.deleteEtudiant(CNE);
         }
+	
+	// Affichage des etudiants de la promotion donnee : code formation et annee universitaire
 	
 	@RequestMapping(method = RequestMethod.GET , value="/promotion/{code_formation}/{annee_univ}" )
 	 public List<Etudiant> GetEtudiantPromotions (@PathVariable("code_formation") String CF,@PathVariable("annee_univ") String AU ) {
