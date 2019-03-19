@@ -13,15 +13,15 @@ import fr.univbrest.dosi.repository.PromotionRepository;
 
 @Service
 public class FormationBusinessJPA implements FormationBusiness{
-	/*
-	@Autowired
-	private EntityManager em;*/
+	
+	private FormationRepository formationRepository;
+	private PromotionRepository promotionRepository;
 	
 	@Autowired
-	private FormationRepository formationRepository;
-
-	@Autowired
-	private PromotionRepository promotionRepository;
+	public FormationBusinessJPA(FormationRepository formationRepository, PromotionRepository promotionRepository ) {
+		this.formationRepository = formationRepository;
+		this.promotionRepository = promotionRepository;
+	}
 	
 	@Override
 	public Formation AddFormation(Formation formation) {
@@ -35,13 +35,13 @@ public class FormationBusinessJPA implements FormationBusiness{
 	}
 
 	@Override
-	public Formation SearchFormationById(String idFormation) {
-		return this.formationRepository.findOne(idFormation);
+	public Formation SearchFormationById(String CodeFormation) {
+		return this.formationRepository.findOne(CodeFormation);
 	}
 
 	@Override
-	public List<Promotion> PromotionByFormation(String idFormation) {
-		return this.promotionRepository.findAllPromotionByCodeFormation(idFormation);
+	public List<Promotion> PromotionByFormation(String CodeFormation) {
+		return this.promotionRepository.findAllPromotionByCodeFormation(CodeFormation);
 	}
 
 	

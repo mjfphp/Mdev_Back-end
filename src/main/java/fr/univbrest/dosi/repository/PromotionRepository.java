@@ -15,4 +15,5 @@ public interface PromotionRepository extends CrudRepository<Promotion, Promotion
 	
 	@Query(value = "select * from promotion where code_formation = ?1", nativeQuery = true)
 	List<Promotion> findAllPromotionByCodeFormation(String idFormation);
+	
 }
