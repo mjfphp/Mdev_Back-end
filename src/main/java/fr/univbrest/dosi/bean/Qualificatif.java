@@ -1,6 +1,8 @@
 package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+
 import javax.persistence.*;
 
 
@@ -17,7 +19,7 @@ public class Qualificatif implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_QUALIFICATIF")
-	private String idQualificatif;
+	private Integer idQualificatif;
 
 	@Column(name="MAXIMAL")
 	private String maximal;
@@ -28,11 +30,11 @@ public class Qualificatif implements Serializable {
 	public Qualificatif() {
 	}
 
-	public String getIdQualificatif() {
+	public Integer getIdQualificatif() {
 		return this.idQualificatif;
 	}
 
-	public void setIdQualificatif(String idQualificatif) {
+	public void setIdQualificatif(Integer idQualificatif) {
 		this.idQualificatif = idQualificatif;
 	}
 

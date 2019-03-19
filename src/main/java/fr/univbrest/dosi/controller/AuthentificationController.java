@@ -15,8 +15,6 @@ import fr.univbrest.dosi.bean.Authentification;
 import fr.univbrest.dosi.business.AuthentificationBuisnessJPA;
 
 @RestController
-
-@CrossOrigin(origins = "http://localhost:5500", maxAge = 3600)
 @RequestMapping("/users")
 public class AuthentificationController {
     private AuthentificationBuisnessJPA authentificationBuisness;
