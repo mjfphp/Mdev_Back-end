@@ -57,5 +57,7 @@ public class EtudiantBusinessJPA implements EtudiantBusiness {
 		return (List<Etudiant>)etudiantrepo.findByPromotion(p);
 	}
 
+	
+
 
 }

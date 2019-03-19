@@ -68,11 +68,11 @@ public class QualificatifController {
     
  // Delete a Qualificatif By Id
     @RequestMapping(method = RequestMethod.DELETE, value="/{idQualificatif}")
-    public String deleteQualificatifById(@PathVariable(value = "idQualificatif") Integer idQualificatif) {
+    public String deleteQualificatifById(@RequestBody Qualificatif qualificatif) {
         
-        if (business.findIfIdQualificatifExistsInReponse(idQualificatif)) {
+        if (business.findIfIdQualificatifExistsInReponse(qualificatif.getIdQualificatif())) {
             
-            business.deleteQualificatif(idQualificatif);
+            business.deleteQualificatif(qualificatif.getIdQualificatif());
             return "Le Qualificatif est supprimé";
         }
         else {
