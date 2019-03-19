@@ -14,4 +14,6 @@ public interface EtudiantRepository extends CrudRepository<Etudiant, String> {
 	// fonction qui retourne une liste des objets etudiant selon la promotion fournie
 	
 	public List<Etudiant> findByPromotion(Promotion p);
+	
+	
 }
