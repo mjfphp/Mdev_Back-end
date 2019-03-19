@@ -2,27 +2,17 @@ package fr.univbrest.dosi.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.univbrest.dosi.bean.Etudiant;
 import fr.univbrest.dosi.bean.Qualificatif;
-import fr.univbrest.dosi.business.EtudiantBusiness;
 import fr.univbrest.dosi.business.QualificatifBusiness;
-import fr.univbrest.dosi.repository.QualificatifRepository;
 
 
 

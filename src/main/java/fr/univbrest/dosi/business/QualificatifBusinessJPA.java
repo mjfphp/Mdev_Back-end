@@ -1,6 +1,5 @@
 package fr.univbrest.dosi.business;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

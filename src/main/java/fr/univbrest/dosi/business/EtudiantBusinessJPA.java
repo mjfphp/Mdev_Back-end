@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 
 import fr.univbrest.dosi.bean.Etudiant;
 import fr.univbrest.dosi.bean.Promotion;
-import fr.univbrest.dosi.bean.PromotionPK;
 import fr.univbrest.dosi.repository.EtudiantRepository;
-import javax.persistence.Entity;
 
 @Service
 public class EtudiantBusinessJPA implements EtudiantBusiness {

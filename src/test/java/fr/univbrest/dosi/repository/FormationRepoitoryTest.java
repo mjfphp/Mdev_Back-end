@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -19,15 +18,16 @@ public class FormationRepoitoryTest {
 
 	Formation F1 = new Formation("M2DOSI","M2","O","Master developpement logiciel");
 	Formation F2 = new Formation("M2SE","M2","N","Master systèmes embarqués");
-	/*
+	
+	
 	@Test
 	public void addFormation() {
 		formationRepository.save(F1);
 		formationRepository.save(F2);
-        //assertThat(formationRepository.count()).isEqualTo(2);
-		assertThat(formationRepository.findAll()).isNotNull();
+        assertThat(formationRepository.count()).isEqualTo(2);
+		//assertThat(formationRepository.findAll()).isNotNull();
 	}
-	
+	/*
 	@Test
 	public void doitCompterLesFormation(){
 		List<Formation> Formations = (List<Formation>) formationRepository.findAll();

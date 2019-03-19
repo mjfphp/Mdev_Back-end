@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import fr.univbrest.dosi.bean.Etudiant;
 import fr.univbrest.dosi.bean.Promotion;
-import fr.univbrest.dosi.bean.PromotionPK;
 
 @Repository
 public interface EtudiantRepository extends CrudRepository<Etudiant, String> {
