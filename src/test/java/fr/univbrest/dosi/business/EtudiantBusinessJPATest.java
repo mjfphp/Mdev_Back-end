@@ -1,8 +1,11 @@
 package fr.univbrest.dosi.business;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import fr.univbrest.dosi.bean.Etudiant;
@@ -14,16 +17,22 @@ public class EtudiantBusinessJPATest {
 	 EtudiantBusinessJPA etudiantBusinessJPA;
 	 EtudiantRepository etudiantRepository = new EtudiantRepositoryList();
 	 
-	 
 	 Etudiant E1 = new Etudiant("1","EtuN1","EtuP1");
-	 Etudiant E2 = new Etudiant("1","EtuN2","EtuP2");
+	 Etudiant E2 = new Etudiant("2","EtuN2","EtuP2");
 	 
+	 @Test
+	    public void testEtudiant(){
+	    	Assert.assertNotNull(E1.getNoEtudiant());
+	    }
 	 
-	 
-	@Test
-	public void testAddEtudiant() {
-		
-	}  
+	 @Test
+	    public void testAddEtudiant() {
+		 EtudiantBusinessJPA etudiantBusinessJPA = new EtudiantBusinessJPA(etudiantRepository);
+		 Etudiant E3 = new Etudiant();
+		 E3.setNoEtudiant("3");
+		 etudiantBusinessJPA.CreateEtudiant(E3);
+		 assertThat(E3.getNoEtudiant()).isEqualTo("3");
+	   }
 	 
     class EtudiantRepositoryList implements EtudiantRepository{
 
