@@ -21,7 +21,7 @@ public class EtudiantBusinessJPATest {
     @Before
     
     public void init () {
-	EtudiantRepository etudiantRepository = new EtudiantRepositoryList();
+	//EtudiantRepository etudiantRepository = new EtudiantRepositoryList();
 	 Etudiant E1 = new Etudiant("1","ETUDN1","ETUDP1");
     }
 	 
