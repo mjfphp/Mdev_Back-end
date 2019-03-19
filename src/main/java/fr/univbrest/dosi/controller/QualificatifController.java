@@ -66,8 +66,8 @@ public class QualificatifController {
         return business.updateQualificatifById(qualificatif);
     }
     
- // Delete a Qualificatif By Id
-    @RequestMapping(method = RequestMethod.DELETE, value="/{idQualificatif}")
+ // Delete a Qualificatif 
+    @RequestMapping(method = RequestMethod.DELETE)
     public String deleteQualificatifById(@RequestBody Qualificatif qualificatif) {
         
         if (business.findIfIdQualificatifExistsInReponse(qualificatif.getIdQualificatif())) {
