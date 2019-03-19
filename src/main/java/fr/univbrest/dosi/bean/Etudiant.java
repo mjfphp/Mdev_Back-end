@@ -73,6 +73,12 @@ public class Etudiant implements Serializable {
 
 	public Etudiant() {
 	}
+	
+	public Etudiant(String noEtudiant, String nom, String prenom) {
+		this.noEtudiant = noEtudiant;
+		this.nom =nom;
+		this.prenom = prenom;
+	}
 
 	public String getNoEtudiant() {
 		return this.noEtudiant;

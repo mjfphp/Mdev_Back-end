@@ -18,7 +18,7 @@ public class FormationRepoitoryTest {
 
 	Formation F1 = new Formation("M2DOSI","M2","O","Master developpement logiciel");
 	Formation F2 = new Formation("M2SE","M2","N","Master systèmes embarqués");
-	
+
 	
 	@Test
 	public void addFormation() {
