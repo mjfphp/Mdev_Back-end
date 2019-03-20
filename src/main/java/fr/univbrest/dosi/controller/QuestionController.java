@@ -53,8 +53,8 @@ public class QuestionController {
 
 	    // Create a new Question
 	    @RequestMapping(method = RequestMethod.POST)
-	    public Question createQuestion(@RequestBody Question question) {
-	        return business.createQuestion(question);
+	    public void createQuestion(@RequestBody Question question) {
+	        business.createQuestion(question);
 	    }
 	    
 	    

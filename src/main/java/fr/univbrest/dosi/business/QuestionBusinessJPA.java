@@ -13,11 +13,11 @@ import fr.univbrest.dosi.repository.QuestionRepository;
 
 @Service
 public class QuestionBusinessJPA implements QuestionBusiness {
-	
-	QuestionRepository questionRepository ;
-	
+
+	QuestionRepository questionRepository;
+
 	QualificatifRepository qualificatifRepository;
-	
+
 	@Autowired
 	public QuestionBusinessJPA(QuestionRepository questionRepository) {
 		this.questionRepository = questionRepository;
@@ -29,7 +29,6 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 		return (List<Question>) questionRepository.findAll();
 	}
 
-	
 	@Override
 	public void deleteQuestion(Long idQuestion) {
 		questionRepository.delete(idQuestion);
@@ -38,18 +37,12 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 
 	@Override
 	public Question createQuestion(Question question) {
-		// TODO Auto-generated method stub
-		/*Question res = questionRepository.findOne(question.getIdQuestion());
-		res.setEnseignant(null);
-		res.setIntitule(question.getIntitule());
-		res.setType(question.getType());
-		res.setQualificatif(qualificatifRepository.findOne(question.getQualificatif().getIdQualificatif()));
-		
-		*/
-		
-		Question q = new Question( question.getIdQuestion(),  question.getIntitule(), question.getType(), question.getEnseignant(), question.getQualificatif());
-		
-		return questionRepository.save(q);
+
+		questionRepository.CreateQuestion(question.getType(), question.getEnseignant().getNoEnseignant(),
+				question.getQualificatif().getIdQualificatif(), question.getIntitule());
+
+		return question;
+
 	}
 
 	@Override
@@ -79,12 +72,10 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 	@Override
 	public Question updateQuestionById(Question question) {
 		// TODO Auto-generated method stub
-		Question res = questionRepository.findOne(question.getIdQuestion());
-		res.setEnseignant(null);
-		res.setIntitule(question.getIntitule());
-		res.setQualificatif(qualificatifRepository.findOne(question.getQualificatif().getIdQualificatif()));
-		res.setType(question.getType());
-		return questionRepository.save(res);
+		questionRepository.UpdateQuestionById(question.getIdQuestion(), question.getType(), question.getEnseignant().getNoEnseignant(),
+				question.getQualificatif().getIdQualificatif(), question.getIntitule());
+
+		return question;
 	}
 
 }
