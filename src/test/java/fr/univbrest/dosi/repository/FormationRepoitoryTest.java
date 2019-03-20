@@ -13,7 +13,7 @@ import fr.univbrest.dosi.bean.Formation;
 import fr.univbrest.dosi.implementation.FormationRepositoryList;
 import fr.univbrest.dosi.repository.FormationRepository;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 public class FormationRepoitoryTest extends FormationRepositoryList {
 	
 	FormationRepository formationRepository;
@@ -31,10 +31,11 @@ public class FormationRepoitoryTest extends FormationRepositoryList {
 	
 	@Test
 	public void testListFormations(){
+		formationRepository = new FormationRepositoryList();
 		formationRepository.save(F1);
 		formationRepository.save(F2);
 		List<Formation> Formations = (List<Formation>) formationRepository.findAll();
-		assertThat(Formations).hasSize(1);
+		assertThat(Formations).hasSize(2);
 	}
    
 }
