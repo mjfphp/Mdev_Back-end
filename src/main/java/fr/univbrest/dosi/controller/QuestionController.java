@@ -70,6 +70,7 @@ public class QuestionController {
 	    	
 	    	if (business.findIfIdQuestionExistsInReponse(question.getIdQuestion())) {
 	    		
+	    	
 	    		business.deleteQuestion(question.getIdQuestion());
 	            return "La Question est supprimée";
 	    	}
