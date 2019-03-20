@@ -60,6 +60,7 @@ public class QualificatifController {
         return business.createQualificatif(qualificatif);
     }
     
+    
     // update a Qualificatif
     @RequestMapping(method = RequestMethod.PUT)
     public Qualificatif updateQualificatif(@RequestBody Qualificatif qualificatif){
