@@ -37,12 +37,15 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 	@Override
 	public Question createQuestion(Question question) {
 		// TODO Auto-generated method stub
-		Question res = questionRepository.findOne(question.getIdQuestion());
+		/*Question res = questionRepository.findOne(question.getIdQuestion());
 		res.setEnseignant(null);
 		res.setIntitule(question.getIntitule());
 		res.setType(question.getType());
 		res.setQualificatif(qualificatifRepository.findOne(question.getQualificatif().getIdQualificatif()));
-		return questionRepository.save(res);
+		
+		
+		*/
+		return questionRepository.save(question);
 	}
 
 	@Override

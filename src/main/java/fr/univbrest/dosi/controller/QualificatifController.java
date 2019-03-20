@@ -4,12 +4,15 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import fr.univbrest.dosi.bean.Qualificatif;
 import fr.univbrest.dosi.business.QualificatifBusiness;
@@ -58,29 +61,34 @@ public class QualificatifController {
     @RequestMapping(method = RequestMethod.POST)
     public Qualificatif createQualificatif(@RequestBody Qualificatif qualificatif) {
         return business.createQualificatif(qualificatif);
+        
     }
-    
     
     // update a Qualificatif
     @RequestMapping(method = RequestMethod.PUT)
     public Qualificatif updateQualificatif(@RequestBody Qualificatif qualificatif){
+    	
         return business.updateQualificatifById(qualificatif);
     }
     
  // Delete a Qualificatif 
     @RequestMapping(method = RequestMethod.DELETE)
-    public String deleteQualificatifById(@RequestBody Qualificatif qualificatif) {
-        
-        if (business.findIfIdQualificatifExistsInReponse(qualificatif.getIdQualificatif())) {
-            
-            business.deleteQualificatif(qualificatif.getIdQualificatif());
-            return "Le Qualificatif est supprimé";
-        }
-        else {
-            return "Le Qualificatif est utilisé dans la reponse d'une question";
-    
-        }
-        
+    public ResponseEntity<?>  deleteQualificatifById(@RequestBody Qualificatif qualificatif) {
+      
+    	  if (!business.findIfIdQualificatifExistsInReponse(qualificatif.getIdQualificatif())) {
+              HttpHeaders responseHeaders = new HttpHeaders();
+             responseHeaders.set("Contenu", "Le Qualificatif est utilisé dans la reponse d'une question");
+             business.deleteQualificatif(qualificatif.getIdQualificatif());
+            return (ResponseEntity<?>) ResponseEntity.ok()
+                 .headers(responseHeaders)
+                 .build();
+          }
+    	  else {
+    		  business.deleteQualificatif(qualificatif.getIdQualificatif());
+    		  return ResponseEntity.ok().build();
+    	  }
+      
+
     }
 
 
