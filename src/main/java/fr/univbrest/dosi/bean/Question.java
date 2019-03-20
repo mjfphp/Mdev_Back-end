@@ -17,7 +17,7 @@ public class Question implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_QUESTION")
-	private String idQuestion;
+	private Long idQuestion;
 
 	@Column(name="INTITULE")
 	private String intitule;
@@ -38,11 +38,11 @@ public class Question implements Serializable {
 	public Question() {
 	}
 
-	public String getIdQuestion() {
+	public Long getIdQuestion() {
 		return this.idQuestion;
 	}
 
-	public void setIdQuestion(String idQuestion) {
+	public void setIdQuestion(Long idQuestion) {
 		this.idQuestion = idQuestion;
 	}
 

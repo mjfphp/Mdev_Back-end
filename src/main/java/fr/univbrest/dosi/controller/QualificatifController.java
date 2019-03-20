@@ -62,7 +62,7 @@ public class QualificatifController {
     
     // update a Qualificatif
     @RequestMapping(method = RequestMethod.PUT)
-    public Qualificatif updateQualificatif(@PathVariable("id") int id,  @RequestBody Qualificatif qualificatif){
+    public Qualificatif updateQualificatif(@RequestBody Qualificatif qualificatif){
         return business.updateQualificatifById(qualificatif);
     }
     
