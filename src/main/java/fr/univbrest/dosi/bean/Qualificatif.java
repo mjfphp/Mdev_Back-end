@@ -52,5 +52,11 @@ public class Qualificatif implements Serializable {
 	public void setMinimal(String minimal) {
 		this.minimal = minimal;
 	}
+	
+	public Qualificatif(Integer idQualificatif, String maximal, String minimal) {
+		this.idQualificatif = idQualificatif;
+		this.maximal = maximal;
+		this.minimal = minimal;
+	}
 
 }
