@@ -5,6 +5,7 @@ target/
 *.war
 *.ear
 *.logs
+*.log
 *.iml
 .eclipse
 /src/main/resources/application.properties
