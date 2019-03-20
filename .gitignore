@@ -1,9 +1,10 @@
 target/
 *.class
+.DS_Store
 *.jar
 *.war
 *.ear
 *.logs
 *.iml
 .eclipse
-#/src/main/resources/application.properties
+/src/main/resources/application.properties

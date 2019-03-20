@@ -16422,3 +16422,7 @@ org.hibernate.TransientObjectException: object references an unsaved transient i
 2019-03-20 23:03:32.660  INFO 24556 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
 2019-03-20 23:03:32.660  INFO 24556 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
 2019-03-20 23:03:32.690  INFO 24556 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 30 ms
+2019-03-20 23:26:46.520  INFO 24556 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-03-20 23:26:46.523  INFO 24556 --- [RMI TCP Connection(2)-127.0.0.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1df82230: startup date [Wed Mar 20 23:03:14 CET 2019]; root of context hierarchy
+2019-03-20 23:26:46.603  INFO 24556 --- [RMI TCP Connection(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-03-20 23:26:46.619  INFO 24556 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
