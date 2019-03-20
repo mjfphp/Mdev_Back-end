@@ -26,7 +26,8 @@ public class Question implements Serializable {
 	private String type;
 
 	//uni-directional many-to-one association to Enseignant
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
+	// added by karim code above
 	@JoinColumn(name="NO_ENSEIGNANT")
 	private Enseignant enseignant;
 
