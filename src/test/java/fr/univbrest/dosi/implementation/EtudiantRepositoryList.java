@@ -7,7 +7,7 @@ import fr.univbrest.dosi.bean.Etudiant;
 import fr.univbrest.dosi.bean.Promotion;
 import fr.univbrest.dosi.repository.EtudiantRepository;
 
-class EtudiantRepositoryList implements EtudiantRepository{
+public class EtudiantRepositoryList implements EtudiantRepository{
 
 	private List<Etudiant> etudiants;
 	public EtudiantRepositoryList() {
@@ -32,22 +32,17 @@ class EtudiantRepositoryList implements EtudiantRepository{
 		return null;
 	}
 
-	@Override
-	public boolean exists(String id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	@Override
 	public Iterable<Etudiant> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return etudiants;
 	}
 
 	@Override
 	public Iterable<Etudiant> findAll(Iterable<String> ids) {
 		// TODO Auto-generated method stub
-		return null;
+		return etudiants;
 	}
 
 	@Override
@@ -65,6 +60,7 @@ class EtudiantRepositoryList implements EtudiantRepository{
 	@Override
 	public void delete(Etudiant entity) {
 		// TODO Auto-generated method stub
+		etudiants.remove(entity);
 		
 	}
 
@@ -84,6 +80,12 @@ class EtudiantRepositoryList implements EtudiantRepository{
 	public List<Etudiant> findByPromotion(Promotion p) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean exists(String id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	
