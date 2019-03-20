@@ -3,40 +3,47 @@ package fr.univbrest.dosi.bean;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the question database table.
  * 
  */
 @Entity
-@Table(name="question")
-@NamedQuery(name="Question.findAll", query="SELECT q FROM Question q")
+@Table(name = "question")
+@NamedQuery(name = "Question.findAll", query = "SELECT q FROM Question q")
 public class Question implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="ID_QUESTION")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID_QUESTION")
 	private Long idQuestion;
 
-	@Column(name="INTITULE")
+	@Column(name = "INTITULE")
 	private String intitule;
 
-	@Column(name="TYPE")
+	@Column(name = "TYPE")
 	private String type;
 
-	//uni-directional many-to-one association to Enseignant
-	@ManyToOne(cascade = {CascadeType.ALL})
-	// added by karim code above
-	@JoinColumn(name="NO_ENSEIGNANT")
+	// uni-directional many-to-one association to Enseignant
+	@ManyToOne
+	@JoinColumn(name = "NO_ENSEIGNANT")
 	private Enseignant enseignant;
 
-	//uni-directional many-to-one association to Qualificatif
+	// uni-directional many-to-one association to Qualificatif
 	@ManyToOne
-	@JoinColumn(name="ID_QUALIFICATIF")
+	@JoinColumn(name = "ID_QUALIFICATIF")
 	private Qualificatif qualificatif;
 
 	public Question() {
+	}
+
+	public Question(Long idQuestion, String intitule, String type, Enseignant enseignant, Qualificatif qualificatif) {
+
+		this.idQuestion = idQuestion;
+		this.intitule = intitule;
+		this.type = type;
+		this.enseignant = enseignant;
+		this.qualificatif = qualificatif;
 	}
 
 	public Long getIdQuestion() {
