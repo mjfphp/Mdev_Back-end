@@ -2,6 +2,7 @@ package fr.univbrest.dosi.business;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +13,7 @@ import fr.univbrest.dosi.implementation.QualificatifRepositoryList;
 import fr.univbrest.dosi.repository.QualificatifRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class QualificatifBusinessJPATest extends QualificatifRepositoryList {
+public class QualificatifBusinessJPATest  {
 	
 	QualificatifBusinessJPA qualificatifBusinessJPA;
 	
@@ -22,12 +23,12 @@ public class QualificatifBusinessJPATest extends QualificatifRepositoryList {
 	Qualificatif q2 = new Qualificatif(1,"Bien","Mauvais");
 
 	@Test
-	private void TestcreateQualificatif() {
+	public void TestcreateQualificatif() {
 		// TODO Auto-generated method stub
 
 	}
 	@Test
-	private void TestListQualificatif() {
+	public void TestListQualificatif() {
 		// TODO Auto-generated method stub
 		QualificatifRepository qualificatifRepository = new QualificatifRepositoryList();
 		QualificatifBusinessJPA qualificatifBusinessJPA = new QualificatifBusinessJPA(qualificatifRepository);
@@ -37,51 +38,50 @@ public class QualificatifBusinessJPATest extends QualificatifRepositoryList {
 	}
 	
 	@Test
-	private void TestGetAllQualificatifs() {
+	public void TestGetAllQualificatifs() {
 		// TODO Auto-generated method stub
-		QualificatifRepository qualificatifRepository1 = new QualificatifRepositoryList();
-		QualificatifBusinessJPA qualificatifBusinessJPA1 = new QualificatifBusinessJPA(qualificatifRepository1);
-		qualificatifBusinessJPA1.createQualificatif(q1);
-		qualificatifBusinessJPA1.createQualificatif(q2);
+		QualificatifRepositoryList qualificatifRepository = new QualificatifRepositoryList();
+		QualificatifBusinessJPA qualificatifBusinessJPA = new QualificatifBusinessJPA(qualificatifRepository);
+		qualificatifBusinessJPA.createQualificatif(q1);
+		qualificatifBusinessJPA.createQualificatif(q2);
 		assertEquals(qualificatifRepository.count(),2);
-
+ 
 	}
+	
 	@Test
-	private void TestdeleteQualificatif() {
+	public void TestdeleteQualificatif() {
+		// TODO Auto-generated method stub
+		QualificatifRepositoryList qualificatifRepository = new QualificatifRepositoryList();
+		QualificatifBusinessJPA qualificatifBusinessJPA = new QualificatifBusinessJPA(qualificatifRepository);
+		qualificatifBusinessJPA.createQualificatif(q1);
+		qualificatifBusinessJPA.deleteQualificatif(q1.getIdQualificatif());
+		Qualificatif q = qualificatifBusinessJPA.findQualificationById(q1.getIdQualificatif());
+		assertNull(q);
+		}
+	
+	
+	@Test
+	public void TestfindQualificationById() {
 		// TODO Auto-generated method stub
 
 	}
 	@Test
-	private void TestfindQualificationById() {
+	public void TestupdateQualificatifById() {
 		// TODO Auto-generated method stub
 
 	}
 	@Test
-	private void TestupdateQualificatifById() {
-		// TODO Auto-generated method stub
-
-	}
-	@Test
-	private void TestfindQualificationByMin() {
+	public void TestfindQualificationByMin() {
 		// TODO Auto-generated method stub
 
 	}
 	
 	@Test
-	private void TestfindQualificationByMax() {
+	public void TestfindQualificationByMax() {
 		// TODO Auto-generated method stub
 		
 
 	}
-	/* 
-	 @Test
-    public void testListFormation(){
-        FormationRepository formationRepository = new FormationRepositoryList();
-    	FormationBusinessJPA formationBusinessJPA = new FormationBusinessJPA(formationRepository, null);
-    	formationBusinessJPA.AddFormation(F1);
-    	formationBusinessJPA.AddFormation(F2);
-        assertThat(formationRepository.count()).isEqualTo(2);
-    }
-	 * */
+
 	 
 }
