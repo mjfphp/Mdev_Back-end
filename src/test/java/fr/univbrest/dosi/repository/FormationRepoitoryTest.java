@@ -30,6 +30,7 @@ public class FormationRepoitoryTest extends FormationRepositoryList {
 	
 	@Test
 	public void testListFormations(){
+		formationRepository = new FormationRepositoryList();
 		formationRepository.save(F1);
 		formationRepository.save(F2);
 		List<Formation> Formations = (List<Formation>) formationRepository.findAll();

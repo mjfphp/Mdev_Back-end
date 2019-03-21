@@ -1,2 +1,11 @@
-log/logfile.log
+target/
+*.class
+.DS_Store
+*.jar
+*.war
+*.ear
+*.logs
+*.log
+*.iml
+.eclipse
 /src/main/resources/application.properties
