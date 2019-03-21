@@ -26,7 +26,7 @@ public class AuthentificationRepositoryTest extends AuthentificationRepositoryLi
 		authentificationRepository.save(U1);
 		authentificationRepository.save(U2);
 		List<Authentification> L1 = new ArrayList<Authentification>();
-		//L1 = authentificationRepository.findAll();
+		L1 = (List<Authentification>) authentificationRepository.findAll();
 		Assert.assertEquals(L1, authentificationRepository.findAll());
 	}
 	
