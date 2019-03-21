@@ -39,6 +39,12 @@ public class Authentification implements Serializable {
 	public Authentification() {
 	}
 
+	public Authentification(int idConnection, String loginConnection, String motPasse) {
+		this.idConnection = idConnection;
+		this.loginConnection = loginConnection;
+		this.motPasse = motPasse;
+	}
+	
 	public int getIdConnection() {
 		return this.idConnection;
 	}

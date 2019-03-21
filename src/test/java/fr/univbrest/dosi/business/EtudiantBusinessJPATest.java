@@ -15,7 +15,6 @@ import fr.univbrest.dosi.repository.EtudiantRepository;
 
 public class EtudiantBusinessJPATest {
 	
-
 	 EtudiantBusinessJPA etudiantBusinessJPA;
 	 EtudiantRepository etudiantRepository = new EtudiantRepositoryList();
 	 
