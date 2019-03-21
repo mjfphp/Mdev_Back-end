@@ -43,7 +43,7 @@ public class FormationRepositoryList implements FormationRepository{
 	@Override
 	public Iterable<Formation> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return formations;
 	}
 
 	@Override

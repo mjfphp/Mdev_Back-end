@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fr.univbrest.dosi.bean.Enseignant;
+import fr.univbrest.dosi.bean.Qualificatif;
 import fr.univbrest.dosi.bean.Question;
 import fr.univbrest.dosi.repository.QualificatifRepository;
 import fr.univbrest.dosi.repository.QuestionRepository;
@@ -43,9 +45,11 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 		res.setType(question.getType());
 		res.setQualificatif(qualificatifRepository.findOne(question.getQualificatif().getIdQualificatif()));
 		
-		
 		*/
-		return questionRepository.save(question);
+		
+		Question q = new Question( question.getIdQuestion(),  question.getIntitule(), question.getType(), question.getEnseignant(), question.getQualificatif());
+		
+		return questionRepository.save(q);
 	}
 
 	@Override
