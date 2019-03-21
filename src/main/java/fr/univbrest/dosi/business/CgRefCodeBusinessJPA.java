@@ -11,7 +11,6 @@ import fr.univbrest.dosi.repository.CgRefCodeRepository;
 
 
 @Service
-
 public class CgRefCodeBusinessJPA implements CgRefCodeBusiness {
 
 	CgRefCodeRepository repo;

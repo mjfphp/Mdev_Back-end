@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import fr.univbrest.dosi.bean.Qualificatif;
+
 @Repository
 public interface QualificatifRepository extends CrudRepository<Qualificatif, Integer> {
 

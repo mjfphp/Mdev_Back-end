@@ -9,7 +9,6 @@ import fr.univbrest.dosi.bean.CgRefCode;
 
 
 @Repository
-
 public interface CgRefCodeRepository extends CrudRepository<CgRefCode, String> {
 	
 	List<CgRefCode> findByRvDomain(String domain);

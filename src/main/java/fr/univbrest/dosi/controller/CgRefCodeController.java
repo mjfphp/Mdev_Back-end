@@ -15,6 +15,7 @@ import fr.univbrest.dosi.business.CgRefCodeBusiness;
 @RequestMapping("/cgrefcodes")
 public class CgRefCodeController {
 	CgRefCodeBusiness business;
+	
 	@Autowired
 	public CgRefCodeController(CgRefCodeBusiness business) {
 		this.business = business;
