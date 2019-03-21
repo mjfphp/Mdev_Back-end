@@ -9,7 +9,7 @@ import org.junit.Test;
 import fr.univbrest.dosi.bean.Promotion;
 import fr.univbrest.dosi.bean.PromotionPK;
 import fr.univbrest.dosi.implementation.PromotionRepositoryList;
-import junit.framework.Assert;
+
 
 public class PromotionBusinessTest {
 

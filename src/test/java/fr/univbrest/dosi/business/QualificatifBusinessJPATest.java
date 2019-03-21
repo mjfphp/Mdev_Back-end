@@ -2,17 +2,13 @@ package fr.univbrest.dosi.business;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import fr.univbrest.dosi.bean.Qualificatif;
-import fr.univbrest.dosi.implementation.FormationRepositoryList;
 import fr.univbrest.dosi.implementation.QualificatifRepositoryList;
-import fr.univbrest.dosi.repository.FormationRepository;
 import fr.univbrest.dosi.repository.QualificatifRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -45,8 +41,8 @@ public class QualificatifBusinessJPATest extends QualificatifRepositoryList {
 		// TODO Auto-generated method stub
 		QualificatifRepository qualificatifRepository1 = new QualificatifRepositoryList();
 		QualificatifBusinessJPA qualificatifBusinessJPA1 = new QualificatifBusinessJPA(qualificatifRepository1);
-		qualificatifBusinessJPA.createQualificatif(q1);
-		qualificatifBusinessJPA.createQualificatif(q2);
+		qualificatifBusinessJPA1.createQualificatif(q1);
+		qualificatifBusinessJPA1.createQualificatif(q2);
 		assertEquals(qualificatifRepository.count(),2);
 
 	}

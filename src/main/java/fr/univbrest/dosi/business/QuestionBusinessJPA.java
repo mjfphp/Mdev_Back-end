@@ -5,19 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.univbrest.dosi.bean.Enseignant;
-import fr.univbrest.dosi.bean.Qualificatif;
 import fr.univbrest.dosi.bean.Question;
 import fr.univbrest.dosi.repository.QualificatifRepository;
 import fr.univbrest.dosi.repository.QuestionRepository;
 
 @Service
 public class QuestionBusinessJPA implements QuestionBusiness {
-	
-	QuestionRepository questionRepository ;
-	
+
+	QuestionRepository questionRepository;
+
 	QualificatifRepository qualificatifRepository;
-	
+
 	@Autowired
 	public QuestionBusinessJPA(QuestionRepository questionRepository) {
 		this.questionRepository = questionRepository;
@@ -29,7 +27,6 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 		return (List<Question>) questionRepository.findAll();
 	}
 
-	
 	@Override
 	public void deleteQuestion(Long idQuestion) {
 		questionRepository.delete(idQuestion);
@@ -39,16 +36,9 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 	@Override
 	public Question createQuestion(Question question) {
 		// TODO Auto-generated method stub
-		/*Question res = questionRepository.findOne(question.getIdQuestion());
-		res.setEnseignant(null);
-		res.setIntitule(question.getIntitule());
-		res.setType(question.getType());
-		res.setQualificatif(qualificatifRepository.findOne(question.getQualificatif().getIdQualificatif()));
-		
-		*/
-		
-		Question q = new Question( question.getIdQuestion(),  question.getIntitule(), question.getType(), question.getEnseignant(), question.getQualificatif());
-		
+		Question q = new Question(question.getIdQuestion(), question.getIntitule(), question.getType(),
+				question.getEnseignant(), question.getQualificatif());
+
 		return questionRepository.save(q);
 	}
 
