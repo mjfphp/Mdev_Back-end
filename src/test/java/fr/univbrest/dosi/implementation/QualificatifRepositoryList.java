@@ -32,16 +32,19 @@ public class QualificatifRepositoryList implements QualificatifRepository {
 	@Override
 	public Qualificatif findOne(Integer id) {
 		// TODO Auto-generated method stub
-		for(Qualificatif qualificatif : qualificatifs)
-			 if (qualificatif.getIdQualificatif().equals(id))
+		for(Qualificatif qualificatif : qualificatifs) {
+			 if (qualificatif.getIdQualificatif().equals(id)) {
                  return qualificatif;
+			 }
+		}
 		return null;
 	}
 
 	@Override
 	public boolean exists(Integer id) {
 		// TODO Auto-generated method stub
-		return !this.findOne(id).equals(null);
+	
+		return !(this.findOne(id).equals(null));
 	}
 
 	@Override
@@ -71,8 +74,9 @@ public class QualificatifRepositoryList implements QualificatifRepository {
 	}
 
 	@Override
-	public void delete(Qualificatif q) {
-		this.qualificatifs.remove(q);
+	public void delete(Qualificatif entity) {
+		// TODO Auto-generated method stub
+		this.qualificatifs.remove(entity);
 	}
 
 	@Override
