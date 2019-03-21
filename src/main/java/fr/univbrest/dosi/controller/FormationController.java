@@ -25,7 +25,7 @@ public class FormationController {
 	public List<Formation> GetAllFormations() {
 		return formationBusiness.GetAllFormations();
 	}
-	
+
 	// method to add Formation
 	@RequestMapping(method = RequestMethod.POST)
 	public Formation AddFormation(@RequestBody Formation formation) {
@@ -37,11 +37,11 @@ public class FormationController {
 	public Formation SearchFormationById(@PathVariable String idFormation) {
 		return formationBusiness.SearchFormationById(idFormation);
 	}
-	
+
 	// method to get All Promotions of Formation By idFormation
 	@RequestMapping(value = "{idFormation}/promotions", method = RequestMethod.GET)
 	public List<Promotion> PromotionByFormation(@PathVariable String idFormation) {
 		return formationBusiness.PromotionByFormation(idFormation);
 	}
-	
+
 }

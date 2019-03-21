@@ -71,9 +71,8 @@ public class QualificatifRepositoryList implements QualificatifRepository {
 	}
 
 	@Override
-	public void delete(Qualificatif entity) {
-		// TODO Auto-generated method stub
-
+	public void delete(Qualificatif q) {
+		this.qualificatifs.remove(q);
 	}
 
 	@Override

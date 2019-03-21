@@ -57,7 +57,13 @@ public class Enseignant implements Serializable {
 
 	public Enseignant() {
 	}
-
+	
+	public Enseignant(int noEnseignant, String nom, String prenom) {
+		this.noEnseignant = noEnseignant;
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+	
 	public int getNoEnseignant() {
 		return this.noEnseignant;
 	}

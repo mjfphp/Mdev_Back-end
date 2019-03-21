@@ -32,13 +32,10 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 		questionRepository.delete(idQuestion);
 
 	}
-
+	
 	@Override
 	public Question createQuestion(Question question) {
-		// TODO Auto-generated method stub
-		Question q = new Question(question.getIdQuestion(), question.getIntitule(), question.getType(),
-				question.getEnseignant(), question.getQualificatif());
-		return questionRepository.save(q);
+		return questionRepository.save(question);
 	}
 
 	@Override

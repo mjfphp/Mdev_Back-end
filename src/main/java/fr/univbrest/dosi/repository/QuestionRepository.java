@@ -23,17 +23,21 @@ public interface QuestionRepository extends CrudRepository<Question, Long> {
 	@Query(value = "SELECT question.* from question,reponse_question,question_evaluation WHERE question.ID_QUESTION = ?1 AND question.ID_QUESTION=question_evaluation.ID_QUESTION AND question_evaluation.ID_QUESTION=reponse_question.ID_QUESTION_EVALUATION", nativeQuery = true)
 	List<Question> findIfIdQuestionExistsInReponse(Long idQuestion);
 
+	
+	// fonction qui créée une question 
 	@Transactional
 	@Modifying
 	@Query(value = "INSERT INTO question (TYPE, NO_ENSEIGNANT, ID_QUALIFICATIF, INTITULE) VALUES (:type,:idenseignant,:idqualif,:intitule)", nativeQuery = true)
 	public void CreateQuestion(@Param("type") String type, @Param("idenseignant") int idenseignant,
 			@Param("idqualif") Integer idqualif, @Param("intitule") String intitule);
 
+	
+	
+	// fonction qui modifie une question 
 	@Transactional
 	@Modifying
 	@Query(value = "UPDATE question q  SET q.TYPE=:type, q.NO_ENSEIGNANT=:idenseignant, q.ID_QUALIFICATIF=:idqualif, q.INTITULE= :intitule where q.ID_QUESTION=:idQuestion", nativeQuery = true)
-
-public 	void UpdateQuestionById(@Param("idQuestion") Long idQuestion, @Param("type") String type,
+	public 	void UpdateQuestionById(@Param("idQuestion") Long idQuestion, @Param("type") String type,
 			@Param("idenseignant") int idenseignant, @Param("idqualif") Integer idqualif,
 			@Param("intitule") String intitule);
 

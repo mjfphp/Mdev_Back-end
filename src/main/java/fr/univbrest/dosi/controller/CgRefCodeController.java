@@ -21,13 +21,13 @@ public class CgRefCodeController {
 		this.business = business;
 	}
 	
-
+	// fonction qui retourne tout les CgRefCode
 	@RequestMapping(method=RequestMethod.GET)
 	public List<CgRefCode> GetAllCgRefCodes(){
 		return business.GetAllCgRefCodes();
 	}
 	
-
+	// fonction qui retourne les domaines
 	@RequestMapping(method = RequestMethod.GET , value="/{domain}" )
         public List<CgRefCode> FindByDomain (@PathVariable("domain") String domain ) {
         	

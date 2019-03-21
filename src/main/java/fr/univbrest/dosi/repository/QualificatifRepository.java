@@ -11,10 +11,15 @@ import fr.univbrest.dosi.bean.Qualificatif;
 @Repository
 public interface QualificatifRepository extends CrudRepository<Qualificatif, Integer> {
 
+	// fonction qui recherche un qualificatif par son maximal
 	@Query(value = "select qualificatif.* from qualificatif where Maximal = ?1", nativeQuery = true)
 	List<Qualificatif> findByMaximal(String maximal);
+
+	// fonction qui recherche un qualificatif par son minimal
 	@Query(value = "select qualificatif.* from qualificatif where Minimal = ?1", nativeQuery = true)
 	List<Qualificatif> findByMinimal(String minimal);
+
+	// fonction qui vérifie si les qualificatifs sont utilisés dans une question
 	@Query(value = "SELECT qualificatif.* from qualificatif,reponse_question,question_evaluation WHERE qualificatif.ID_QUALIFICATIF= ?1 AND qualificatif.ID_QUALIFICATIF=question_evaluation.ID_QUALIFICATIF AND question_evaluation.ID_QUESTION=reponse_question.ID_QUESTION_EVALUATION", nativeQuery = true)
 	List<Qualificatif> findIfIdQualificatifExistsInReponse(int idQualificatif);
 }

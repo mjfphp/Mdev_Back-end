@@ -14,12 +14,6 @@ import fr.univbrest.dosi.bean.Promotion;
 import fr.univbrest.dosi.bean.PromotionPK;
 import fr.univbrest.dosi.business.EtudiantBusiness;
 
-/**
- * 
- * 
- * Etudiant Controller 
- * 
- * **/
 @RestController
 @RequestMapping("/etudiants")
 public class EtudiantController {
