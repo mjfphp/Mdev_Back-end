@@ -13,7 +13,7 @@ import fr.univbrest.dosi.implementation.AuthentificationRepositoryList;
 import fr.univbrest.dosi.repository.AuthentificationRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class AuthentificationJPATest extends AuthentificationRepositoryList {
+public class AuthentificationBusinessJPATest extends AuthentificationRepositoryList {
 
 	AuthentificationBusinessJPA authentificationBusinessJPA;
 	AuthentificationRepository authentificationRepository = new AuthentificationRepositoryList();

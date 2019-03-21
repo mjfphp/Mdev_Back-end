@@ -85,8 +85,10 @@ public class AuthentificationRepositoryList implements AuthentificationRepositor
 
 	@Override
 	public Authentification findByLoginConnection(String loginConnection) {
-		// TODO Auto-generated method stub
-		return null;
+		for (Authentification authentification : authentifications)
+            if (authentification.getLoginConnection().equals(loginConnection))
+                return authentification;
+		 return null;
 	}
 
 	@Override
