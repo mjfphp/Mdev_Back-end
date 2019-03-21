@@ -23,10 +23,12 @@ public class AuthentificationBusinessJPA {
             return (List<Authentification>) authentificationRepository.findAll();
         }
         
-        // fonction qui retourne l'utilisateur par email
+        // fonction qui retourne l'utilisateur par email ou pseaudo
         public Authentification SearchByEmail(String email) {
-            List<Authentification> liste = authentificationRepository.findAll();
-            return liste.stream().filter(t -> t.getLoginConnection().equals(email)).findFirst().get();
+        	Authentification user = authentificationRepository.findByLoginConnection(email);
+        	if(user==null)
+        		 user = authentificationRepository.findByPseudoConnection(email);
+            return user;
         }
         
 }

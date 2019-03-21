@@ -3,10 +3,6 @@ package fr.univbrest.dosi.implementation;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 import fr.univbrest.dosi.bean.Authentification;
 import fr.univbrest.dosi.repository.AuthentificationRepository;
@@ -24,11 +20,7 @@ public class AuthentificationRepositoryList implements AuthentificationRepositor
 		return authentifications;
 	}
 
-	@Override
-	public List<Authentification> findAll(Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public List<Authentification> findAll(Iterable<Integer> ids) {
@@ -41,53 +33,7 @@ public class AuthentificationRepositoryList implements AuthentificationRepositor
 		return null;
 	}
 
-	@Override
-	public void flush() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public <S extends Authentification> S saveAndFlush(S entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void deleteInBatch(Iterable<Authentification> entities) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAllInBatch() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Authentification getOne(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Authentification> List<S> findAll(Example<S> example) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Authentification> List<S> findAll(Example<S> example, Sort sort) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Page<Authentification> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public <S extends Authentification> S save(S s) {
@@ -138,27 +84,18 @@ public class AuthentificationRepositoryList implements AuthentificationRepositor
 	}
 
 	@Override
-	public <S extends Authentification> S findOne(Example<S> example) {
+	public Authentification findByLoginConnection(String loginConnection) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public <S extends Authentification> Page<S> findAll(Example<S> example, Pageable pageable) {
+	public Authentification findByPseudoConnection(String pseudoConnection) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public <S extends Authentification> long count(Example<S> example) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
-	@Override
-	public <S extends Authentification> boolean exists(Example<S> example) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 	
 }
