@@ -19,7 +19,7 @@ import fr.univbrest.dosi.business.QuestionBusiness;
 @CrossOrigin
 @RequestMapping("/Questions")
 public class QuestionController {
-	
+
 	private QuestionBusiness business;
 
 	@Autowired
@@ -27,65 +27,58 @@ public class QuestionController {
 		this.business = business;
 	}
 
-	
-	 // Get All Questions
-		@RequestMapping(method = RequestMethod.GET)
-	    public List<Question> getAllQuestions() {
-	        return business.GetAllQuestions();
-	    }
-		
-		
-		// Get Questions By Id
-		@RequestMapping(method = RequestMethod.GET, value="/id/{id}")
-	    public Question getQuestionById(@PathVariable("id") Long idQuestion) {
-	        return business.findQuestionById(idQuestion);
-	    }
-		
-		// Get Questions By Intitule
-			@RequestMapping(method = RequestMethod.GET, value="/intitule/{intitule}")
-		    public List<Question> getQuestionByIntitule(@PathVariable("intitule") String intitule) {
-		        return business.findQuestionByIntitule(intitule);
-		    }
-			
-		// Get Questions By Type
-			@RequestMapping(method = RequestMethod.GET, value="/type/{type}")
-			public List<Question> getQuestionByType(@PathVariable("type") String type) {
-			    return business.findQuestionByType(type);
-			}
+	// Get All Questions
+	@RequestMapping(method = RequestMethod.GET)
+	public List<Question> getAllQuestions() {
+		return business.GetAllQuestions();
+	}
 
-	    // Create a new Question
-	    @RequestMapping(method = RequestMethod.POST)
-	    public void createQuestion(@RequestBody Question question) {
-	        business.createQuestion(question);
-	    }
-	    
-	    
-	    // update a Question
-	    @RequestMapping(method = RequestMethod.PUT)
-	    public Question updateQuestion( @RequestBody Question question){
-	    	return business.updateQuestionById(question);
-	    }
-	    
-	 // Delete a Question By Id
-	    @RequestMapping(method = RequestMethod.DELETE)
-	    public ResponseEntity<?> deleteQualificatifById(@RequestBody Question question) {
-	    	
-	    	if (business.findIfIdQuestionExistsInReponse(question.getIdQuestion())) {
-	    		
-	    		  HttpHeaders responseHeaders = new HttpHeaders();
-	              responseHeaders.set("Contenu", "La Question est supprimée");
-	    		business.deleteQuestion(question.getIdQuestion());	            
-	            return (ResponseEntity<?>) ResponseEntity.ok()
-	                    .headers(responseHeaders)
-	                    .build();
-	    	}
-	    	else {
-	    		business.deleteQuestion(question.getIdQuestion());	            
-	    		  return ResponseEntity.ok().build();
+	// Get Questions By Id
+	@RequestMapping(method = RequestMethod.GET, value = "/id/{id}")
+	public Question getQuestionById(@PathVariable("id") Long idQuestion) {
+		return business.findQuestionById(idQuestion);
+	}
 
-	  	
-	    	}
-	        
-	    }
+	// Get Questions By Intitule
+	@RequestMapping(method = RequestMethod.GET, value = "/intitule/{intitule}")
+	public List<Question> getQuestionByIntitule(@PathVariable("intitule") String intitule) {
+		return business.findQuestionByIntitule(intitule);
+	}
+
+	// Get Questions By Type
+	@RequestMapping(method = RequestMethod.GET, value = "/type/{type}")
+	public List<Question> getQuestionByType(@PathVariable("type") String type) {
+		return business.findQuestionByType(type);
+	}
+
+	// Create a new Question
+	@RequestMapping(method = RequestMethod.POST)
+	public void createQuestion(@RequestBody Question question) {
+		business.createQuestion(question);
+	}
+
+	// update a Question
+	@RequestMapping(method = RequestMethod.PUT)
+	public Question updateQuestion(@RequestBody Question question) {
+		return business.updateQuestionById(question);
+	}
+
+	// Delete a Question By Id
+	@RequestMapping(method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteQualificatifById(@RequestBody Question question) {
+
+		if (!business.findIfIdQuestionExistsInReponse(question.getIdQuestion())) {
+			HttpHeaders responseHeaders = new HttpHeaders();
+			responseHeaders.set("Contenu", "La Question est utilisée dans une reponse ");
+
+			business.deleteQuestion(question.getIdQuestion());
+			return (ResponseEntity<?>) ResponseEntity.ok().headers(responseHeaders).build();
+		} else {
+			business.deleteQuestion(question.getIdQuestion());
+			return ResponseEntity.ok().build();
+
+		}
+
+	}
 
 }
