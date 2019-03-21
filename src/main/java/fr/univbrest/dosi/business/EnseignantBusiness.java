@@ -5,5 +5,6 @@ import fr.univbrest.dosi.bean.Enseignant;
 
 public interface EnseignantBusiness {
 
+	// fonction qui retourne tous les enseignants
 	List<Enseignant> getAllEnseignant();
 }

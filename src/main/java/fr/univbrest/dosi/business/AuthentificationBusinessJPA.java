@@ -18,10 +18,12 @@ public class AuthentificationBusinessJPA {
             this.authentificationRepository = repos;
         }
         
+        // fonction qui retourne tous les utilisateurs
         public List<Authentification> recupererTousLesusers() {
             return (List<Authentification>) authentificationRepository.findAll();
         }
         
+        // fonction qui retourne l'utilisateur par email
         public Authentification SearchByEmail(String email) {
             List<Authentification> liste = authentificationRepository.findAll();
             return liste.stream().filter(t -> t.getLoginConnection().equals(email)).findFirst().get();

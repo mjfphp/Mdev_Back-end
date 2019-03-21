@@ -20,25 +20,25 @@ public class FormationController {
 	@Autowired
 	private FormationBusiness formationBusiness;
 
-	// method to get All Formations
+	// fonction qui retourne toutes les formations
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Formation> GetAllFormations() {
 		return formationBusiness.GetAllFormations();
 	}
 
-	// method to add Formation
+	// fonction qui ajoute une formation
 	@RequestMapping(method = RequestMethod.POST)
 	public Formation AddFormation(@RequestBody Formation formation) {
 		return formationBusiness.AddFormation(formation);
 	}
 
-	// method to get Formation By id
+	// fonction qui retourne une formation par id
 	@RequestMapping(value = "/{idFormation}", method = RequestMethod.GET)
 	public Formation SearchFormationById(@PathVariable String idFormation) {
 		return formationBusiness.SearchFormationById(idFormation);
 	}
 
-	// method to get All Promotions of Formation By idFormation
+	// fonction qui retourne les promotions d'une formation
 	@RequestMapping(value = "{idFormation}/promotions", method = RequestMethod.GET)
 	public List<Promotion> PromotionByFormation(@PathVariable String idFormation) {
 		return formationBusiness.PromotionByFormation(idFormation);

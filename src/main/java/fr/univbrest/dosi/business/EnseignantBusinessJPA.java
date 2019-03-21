@@ -9,19 +9,18 @@ import fr.univbrest.dosi.bean.Enseignant;
 import fr.univbrest.dosi.repository.EnseignantRepository;
 
 @Service
-public class EnseignantBusinessJPA implements EnseignantBusiness{
+public class EnseignantBusinessJPA implements EnseignantBusiness {
 
 	private EnseignantRepository enseignantRepository;
-	
+
 	@Autowired
 	public EnseignantBusinessJPA(EnseignantRepository enseignantRepository) {
 		this.enseignantRepository = enseignantRepository;
 	}
 
-	// method call to get all Enseignants
+	// fonction qui retourne tout les enseignants
 	public List<Enseignant> getAllEnseignant() {
 		return (List<Enseignant>) enseignantRepository.findAll();
 	}
-
 
 }

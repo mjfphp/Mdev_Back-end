@@ -7,8 +7,10 @@ import fr.univbrest.dosi.bean.PromotionPK;
 
 public interface PromotionBusiness {
 
+	// fonction qui retourne la listes des promotions
 	public List <Promotion> GetAllPromotions();
 
+	// fonction qui retourne une promotion par id
 	public Promotion recupererPromotionParID(PromotionPK promotionPK);
 	
 }

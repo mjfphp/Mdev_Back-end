@@ -22,51 +22,50 @@ public class QualificatifController {
 
 	private QualificatifBusiness business;
 
-	//constructeur du controller 
 	@Autowired
 	public QualificatifController(QualificatifBusiness business) {
 		this.business = business;
 	}
 
-	// Get All Qualificatifs
+	// fonction qui retourne tous les qualificatifs
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Qualificatif> getAllQualificatifs() {
 		return business.GetAllQualificatifs();
 	}
 
-	// Get Qualificatifs By Id
+	// fonction qui cherche un qualificatif par id
 	@RequestMapping(method = RequestMethod.GET, value = "/id/{id}")
 	public Qualificatif getQualificatifById(@PathVariable("id") Integer idQualificatif) {
 		return business.findQualificationById(idQualificatif);
 	}
 
-	// Get Qualificatifs By Max
+	// fonction qui cherche un qualificatif par max
 	@RequestMapping(method = RequestMethod.GET, value = "/max/{max}")
 	public List<Qualificatif> getQualificatifByMax(@PathVariable("max") String max) {
 		return business.findQualificationByMax(max);
 	}
 
-	// Get Qualificatifs By Min
+	// fonction qui cherche un qualificatif par min
 	@RequestMapping(method = RequestMethod.GET, value = "/min/{min}")
 	public List<Qualificatif> getQualificatifByMin(@PathVariable("min") String min) {
 		return business.findQualificationByMin(min);
 	}
 
-	// Create a new Qualificatif
+	// fonction qui crée un qualificatif  
 	@RequestMapping(method = RequestMethod.POST)
 	public Qualificatif createQualificatif(@RequestBody Qualificatif qualificatif) {
 		return business.createQualificatif(qualificatif);
 
 	}
 
-	// update a Qualificatif
+	// fonction qui modifie un qualificatif 
 	@RequestMapping(method = RequestMethod.PUT)
 	public Qualificatif updateQualificatif(@RequestBody Qualificatif qualificatif) {
 
 		return business.updateQualificatifById(qualificatif);
 	}
 
-	// Delete a Qualificatif
+	// fonction qui supprime un qualificatif
 	@RequestMapping(method = RequestMethod.DELETE)
 	public ResponseEntity<?> deleteQualificatifById(@RequestBody Qualificatif qualificatif) {
 

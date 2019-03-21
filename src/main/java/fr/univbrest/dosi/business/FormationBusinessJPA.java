@@ -23,22 +23,26 @@ public class FormationBusinessJPA implements FormationBusiness{
 		this.promotionRepository = promotionRepository;
 	}
 	
+	// fonction qui ajoute une formation
 	@Override
 	public Formation AddFormation(Formation formation) {
 		return formationRepository.save(formation);
 	}
 
+	// fonction qui retourne toutes les formations
 	@Override
 	public List<Formation> GetAllFormations() {
 		List<Formation> formations = (List<Formation>) formationRepository.findAll();
 		return formations;
 	}
 
+	// fonction qui cherche une formation par id
 	@Override
 	public Formation SearchFormationById(String CodeFormation) {
 		return this.formationRepository.findOne(CodeFormation);
 	}
 
+	// fonction qui retourne les promotions d'une formation
 	@Override
 	public List<Promotion> PromotionByFormation(String CodeFormation) {
 		return this.promotionRepository.findAllPromotionByCodeFormation(CodeFormation);

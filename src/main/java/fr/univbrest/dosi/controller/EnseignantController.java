@@ -22,7 +22,7 @@ public class EnseignantController {
 		this.business = business;
 	}
 	
-	// method to get all Enseignants
+	// fonction qui retourne tous les enseignants
 	@RequestMapping(method = RequestMethod.GET , value="/getAllEnseignant" )
 	public List<Enseignant> getAllEnseignant() {
 		return business.getAllEnseignant();
