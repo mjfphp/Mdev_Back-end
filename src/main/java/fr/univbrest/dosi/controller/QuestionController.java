@@ -3,6 +3,8 @@ package fr.univbrest.dosi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -66,16 +68,21 @@ public class QuestionController {
 	    
 	 // Delete a Question By Id
 	    @RequestMapping(method = RequestMethod.DELETE)
-	    public String deleteQualificatifById(@RequestBody Question question) {
+	    public ResponseEntity<?> deleteQualificatifById(@RequestBody Question question) {
 	    	
 	    	if (business.findIfIdQuestionExistsInReponse(question.getIdQuestion())) {
 	    		
-	    	
-	    		business.deleteQuestion(question.getIdQuestion());
-	            return "La Question est supprimée";
+	    		  HttpHeaders responseHeaders = new HttpHeaders();
+	              responseHeaders.set("Contenu", "La Question est supprimée");
+	    		business.deleteQuestion(question.getIdQuestion());	            
+	            return (ResponseEntity<?>) ResponseEntity.ok()
+	                    .headers(responseHeaders)
+	                    .build();
 	    	}
 	    	else {
-				return "La Question est utilisée dans une reponse ";
+	    		business.deleteQuestion(question.getIdQuestion());	            
+	    		  return ResponseEntity.ok().build();
+
 	  	
 	    	}
 	        
