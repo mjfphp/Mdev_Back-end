@@ -32,7 +32,7 @@ public class AuthentificationBusinessJPA {
         	System.out.println("1 : "+user);}
         	if(user!=null) {System.out.println("1 : "+user);return user;}
         	else
-        		throw new Exception("spixla");
+        		return new Authentification();
         }
         
 }
