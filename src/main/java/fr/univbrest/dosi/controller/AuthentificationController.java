@@ -29,7 +29,7 @@ public class AuthentificationController {
 //em:.+
 	//fonction qui cherche un utilisateur par email
 	@GetMapping("/email/{em}")
-	public Authentification SearchByEmail(@PathVariable("em") String em) {
+	public Authentification SearchByEmail(@PathVariable("em") String em)  throws Exception {
 		
 		return authentificationBuisness.SearchByEmail(em);
 	}
