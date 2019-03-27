@@ -1,6 +1,8 @@
 package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+
 import javax.persistence.*;
 
 
@@ -17,7 +19,7 @@ public class RubriqueEvaluation implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_RUBRIQUE_EVALUATION")
-	private String idRubriqueEvaluation;
+	private BigInteger idRubriqueEvaluation;
 
 	@Column(name="DESIGNATION")
 	private String designation;
@@ -38,11 +40,11 @@ public class RubriqueEvaluation implements Serializable {
 	public RubriqueEvaluation() {
 	}
 
-	public String getIdRubriqueEvaluation() {
+	public BigInteger getIdRubriqueEvaluation() {
 		return this.idRubriqueEvaluation;
 	}
 
-	public void setIdRubriqueEvaluation(String idRubriqueEvaluation) {
+	public void setIdRubriqueEvaluation(BigInteger idRubriqueEvaluation) {
 		this.idRubriqueEvaluation = idRubriqueEvaluation;
 	}
 

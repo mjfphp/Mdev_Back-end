@@ -73,8 +73,7 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 	@Override
 	public Question updateQuestionById(Question question) {
 		// TODO Auto-generated method stub
-		questionRepository.UpdateQuestionById(question.getIdQuestion(), question.getType(), question.getEnseignant().getNoEnseignant(),
-				question.getQualificatif().getIdQualificatif(), question.getIntitule());
+		questionRepository.UpdateQuestionById(question.getIdQuestion(), question.getQualificatif().getIdQualificatif(), question.getIntitule());
 
 		return question;
 	}

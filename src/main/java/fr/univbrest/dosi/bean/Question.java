@@ -16,7 +16,7 @@ public class Question implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID_QUESTION")
-	private Long idQuestion;
+	private long idQuestion;
 
 	@Column(name = "INTITULE")
 	private String intitule;

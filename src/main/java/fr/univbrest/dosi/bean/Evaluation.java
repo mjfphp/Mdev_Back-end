@@ -1,7 +1,14 @@
 package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.JoinColumnOrFormula;
+import org.hibernate.annotations.JoinFormula;
+import org.hibernate.annotations.JoinColumnsOrFormulas;
+
 import java.util.Date;
 
 
@@ -16,37 +23,35 @@ public class Evaluation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID_EVALUATION")
-	private String idEvaluation;
+	private BigInteger idEvaluation;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="DEBUT_REPONSE")
 	private Date debutReponse;
 
-	@Column(name="DESIGNATION")
 	private String designation;
 
-	@Column(name="ETAT")
 	private String etat;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="FIN_REPONSE")
 	private Date finReponse;
 
-	@Column(name="NO_EVALUATION")
+	@Column(name="NO_EVALUATION", nullable=true)
 	private byte noEvaluation;
 
-	@Column(name="PERIODE")
 	private String periode;
 
 	//uni-directional many-to-one association to ElementConstitutif
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="CODE_EC", referencedColumnName="CODE_EC", insertable=false, updatable=false),
-		@JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION", insertable=false, updatable=false),
-		@JoinColumn(name="CODE_UE", referencedColumnName="CODE_UE", insertable=false, updatable=false)
-		})
+	@JoinColumnsOrFormulas(value = {
+	        @JoinColumnOrFormula(column = @JoinColumn(name="CODE_EC", referencedColumnName="CODE_EC")),
+	        @JoinColumnOrFormula(formula = @JoinFormula(value="CODE_FORMATION", referencedColumnName="CODE_FORMATION")),
+	        @JoinColumnOrFormula(formula = @JoinFormula(value="CODE_UE", referencedColumnName="CODE_UE"))
+	        }) 
+
 	private ElementConstitutif elementConstitutif;
 
 	//uni-directional many-to-one association to Enseignant
@@ -57,27 +62,27 @@ public class Evaluation implements Serializable {
 	//uni-directional many-to-one association to Promotion
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="ANNEE_UNIVERSITAIRE", referencedColumnName="ANNEE_UNIVERSITAIRE", insertable=false, updatable=false),
-		@JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION", insertable=false, updatable=false)
+		@JoinColumn(name="ANNEE_UNIVERSITAIRE", referencedColumnName="ANNEE_UNIVERSITAIRE"),
+		@JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION")
 		})
 	private Promotion promotion;
 
 	//uni-directional many-to-one association to UniteEnseignement
 	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION"),
-		@JoinColumn(name="CODE_UE", referencedColumnName="CODE_UE")
+	@JoinColumnsOrFormulas({
+		@JoinColumnOrFormula(formula = @JoinFormula(value="CODE_FORMATION", referencedColumnName="CODE_FORMATION")),
+		@JoinColumnOrFormula(column = @JoinColumn(name="CODE_UE", referencedColumnName="CODE_UE"))
 		})
 	private UniteEnseignement uniteEnseignement;
 
 	public Evaluation() {
 	}
 
-	public String getIdEvaluation() {
+	public BigInteger getIdEvaluation() {
 		return this.idEvaluation;
 	}
 
-	public void setIdEvaluation(String idEvaluation) {
+	public void setIdEvaluation(BigInteger idEvaluation) {
 		this.idEvaluation = idEvaluation;
 	}
 
