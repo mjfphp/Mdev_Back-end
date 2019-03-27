@@ -26,11 +26,11 @@ public class AuthentificationController {
 	public List<Authentification> recupererTousLesusers() {
 		return authentificationBuisness.recupererTousLesusers();
 	}
-
+//em:.+
 	//fonction qui cherche un utilisateur par email
 	@GetMapping("/email/{em:.+}")
-	public Authentification SearchByEmail(@PathVariable("em") String em) {
-		System.out.println(em);
+	public Authentification SearchByEmail(@PathVariable("em") String em)  throws Exception {
+		
 		return authentificationBuisness.SearchByEmail(em);
 	}
 
