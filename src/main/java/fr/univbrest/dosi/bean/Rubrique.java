@@ -33,8 +33,21 @@ public class Rubrique implements Serializable {
 	@JoinColumn(name="NO_ENSEIGNANT")
 	private Enseignant enseignant;
 
-	public Rubrique() {
+	public Rubrique(String getIdRubrique) {
 	}
+	
+	
+
+	public Rubrique(String idRubrique, String designation, double ordre, String type, Enseignant enseignant) {
+		super();
+		this.idRubrique = idRubrique;
+		this.designation = designation;
+		this.ordre = ordre;
+		this.type = type;
+		this.enseignant = enseignant;
+	}
+
+
 
 	public String getIdRubrique() {
 		return this.idRubrique;
