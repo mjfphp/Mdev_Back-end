@@ -1,7 +1,7 @@
 package fr.univbrest.dosi.controller;
 
-import java.math.BigInteger;
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,25 +26,27 @@ public class EvaluationController {
 		this.business = business;
 	}
 	
-	// fonction qui retourne la liste des évaluations
-	@RequestMapping(method = RequestMethod.GET)
-	public List<Evaluation> GetAllEvaluation(){
-		return business.GetAllEvaluation();
+	// fonction qui retourne la liste des ï¿½valuations
+	@RequestMapping(method = RequestMethod.GET,value="{NoEnseignant}")
+	
+	public List<Evaluation> GetAllEvaluation(@PathVariable("NoEnseignant") int noenseignant ){
+
+		return business.GetAllEvaluation(noenseignant);
 	}
 	
-	// fonction qui ajoute une évaluation
+	// fonction qui ajoute une ï¿½valuation
 	@RequestMapping(method = RequestMethod.POST)
 	public Evaluation AddEvaluation(@RequestBody Evaluation v){
 		return business.AddEvaluation(v);
 	}
 	
-	// fonction qui supprime une évaluation
+	// fonction qui supprime une ï¿½valuation
 	@RequestMapping(value = "/delete/{IdEvaluation}", method = RequestMethod.DELETE)
-	public void DeleteEvaluation(@PathVariable("IdEvaluation") BigInteger IdEvaluation){
-		business.DeleteEvaluation(IdEvaluation);
+	public void DeleteEvaluation(@RequestBody Evaluation Evaluation){
+		business.DeleteEvaluation(Evaluation);
 	}
 	
-	// fonction qui modifie une évaluation 
+	// fonction qui modifie une ï¿½valuation 
 	@RequestMapping(method = RequestMethod.PUT)
 	public Evaluation UpdateEvaluation(@RequestBody Evaluation evaluation) {
 		return business.UpdateEvaluation(evaluation);

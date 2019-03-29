@@ -7,16 +7,16 @@ import fr.univbrest.dosi.bean.Evaluation;
 
 public interface EvaluationBusiness {
 
-	// fonction qui ajoute une évaluation
+	// fonction qui ajoute une evaluation
 	Evaluation AddEvaluation(Evaluation evaluation);
 	
-	// fonction qui retourne la liste des évaluations
-	List<Evaluation> GetAllEvaluation();
+	// fonction qui retourne la liste des evaluations
+	List<Evaluation> GetAllEvaluation(int noenseignant);
 	
-	// fonction qui supprime toutes les évaluations
-	void DeleteEvaluation(BigInteger idEvaluation);
+	// fonction qui supprime toutes les evaluations
+	void DeleteEvaluation(Evaluation Evaluation);
 
-	// fonction qui modifie une évaluation
+	// fonction qui modifie une evaluation
 	Evaluation UpdateEvaluation(Evaluation evaluation);
 	
 }

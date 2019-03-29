@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import fr.univbrest.dosi.bean.Enseignant;
 
 @Repository
-public interface EnseignantRepository extends CrudRepository<Enseignant, String>{
+public interface EnseignantRepository extends CrudRepository<Enseignant, Integer>{
+	
+
 
 }
