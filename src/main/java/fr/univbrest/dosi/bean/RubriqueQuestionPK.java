@@ -13,45 +13,47 @@ public class RubriqueQuestionPK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="ID_RUBRIQUE", insertable=false, updatable=false)
-	private String idRubrique;
+	private long idRubrique;
 
 	@Column(name="ID_QUESTION", insertable=false, updatable=false)
-	private String idQuestion;
+	private long idQuestion;
 
 	public RubriqueQuestionPK() {
 	}
-	public String getIdRubrique() {
+	public long getIdRubrique() {
 		return this.idRubrique;
 	}
-	public void setIdRubrique(String idRubrique) {
+	public void setIdRubrique(long idRubrique) {
 		this.idRubrique = idRubrique;
 	}
-	public String getIdQuestion() {
+	public long getIdQuestion() {
 		return this.idQuestion;
 	}
-	public void setIdQuestion(String idQuestion) {
+	public void setIdQuestion(long idQuestion) {
 		this.idQuestion = idQuestion;
 	}
-
-	public boolean equals(Object other) {
-		if (this == other) {
-			return true;
-		}
-		if (!(other instanceof RubriqueQuestionPK)) {
-			return false;
-		}
-		RubriqueQuestionPK castOther = (RubriqueQuestionPK)other;
-		return 
-			this.idRubrique.equals(castOther.idRubrique)
-			&& this.idQuestion.equals(castOther.idQuestion);
-	}
-
+	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int hash = 17;
-		hash = hash * prime + this.idRubrique.hashCode();
-		hash = hash * prime + this.idQuestion.hashCode();
-		
-		return hash;
+		int result = 1;
+		result = prime * result + (int) (idQuestion ^ (idQuestion >>> 32));
+		result = prime * result + (int) (idRubrique ^ (idRubrique >>> 32));
+		return result;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RubriqueQuestionPK other = (RubriqueQuestionPK) obj;
+		if (idQuestion != other.idQuestion)
+			return false;
+		if (idRubrique != other.idRubrique)
+			return false;
+		return true;
+	}
+ 
 }

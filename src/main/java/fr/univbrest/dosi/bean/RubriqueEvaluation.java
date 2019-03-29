@@ -1,6 +1,8 @@
 package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+
 import javax.persistence.*;
 
 
@@ -17,15 +19,16 @@ public class RubriqueEvaluation implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_RUBRIQUE_EVALUATION")
-	private String idRubriqueEvaluation;
+	private int idRubriqueEvaluation;
 
 	@Column(name="DESIGNATION")
 	private String designation;
 
 	@Column(name="ORDRE")
-	private byte ordre;
+	private int ordre;
 
 	//uni-directional many-to-one association to Evaluation
+	//@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.REMOVE}, fetch=FetchType.EAGER)
 	@ManyToOne
 	@JoinColumn(name="ID_EVALUATION")
 	private Evaluation evaluation;
@@ -38,11 +41,11 @@ public class RubriqueEvaluation implements Serializable {
 	public RubriqueEvaluation() {
 	}
 
-	public String getIdRubriqueEvaluation() {
+	public int getIdRubriqueEvaluation() {
 		return this.idRubriqueEvaluation;
 	}
 
-	public void setIdRubriqueEvaluation(String idRubriqueEvaluation) {
+	public void setIdRubriqueEvaluation(int idRubriqueEvaluation) {
 		this.idRubriqueEvaluation = idRubriqueEvaluation;
 	}
 
@@ -54,11 +57,11 @@ public class RubriqueEvaluation implements Serializable {
 		this.designation = designation;
 	}
 
-	public byte getOrdre() {
+	public int getOrdre() {
 		return this.ordre;
 	}
 
-	public void setOrdre(byte ordre) {
+	public void setOrdre(int ordre) {
 		this.ordre = ordre;
 	}
 

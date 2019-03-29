@@ -100,13 +100,13 @@ public class QuestionRepositoryList implements QuestionRepository {
 
 
 	@Override
-	public void UpdateQuestionById(Long idQuestion, String type, int idenseignant, Integer idqualif, String intitule) {
+	public void CreateQuestion(String type, int idenseignant, Integer idqualif, String intitule) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void CreateQuestion(String type, int idenseignant, Integer idqualif, String intitule) {
+	public void UpdateQuestionById(Long idQuestion, Integer idqualif, String intitule) {
 		// TODO Auto-generated method stub
 		
 	}

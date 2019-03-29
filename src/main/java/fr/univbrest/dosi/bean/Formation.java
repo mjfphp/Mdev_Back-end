@@ -1,6 +1,8 @@
 package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -35,7 +37,7 @@ public class Formation implements Serializable {
 	private Date finAccreditation;
 
 	@Column(name="N0_ANNEE")
-	private byte n0Annee;
+	private BigDecimal n0Annee;
 
 	@Column(name="NOM_FORMATION")
 	private String nomFormation;
@@ -83,11 +85,11 @@ public class Formation implements Serializable {
 		this.finAccreditation = finAccreditation;
 	}
 
-	public byte getN0Annee() {
+	public BigDecimal getN0Annee() {
 		return this.n0Annee;
 	}
 
-	public void setN0Annee(byte n0Annee) {
+	public void setN0Annee(BigDecimal n0Annee) {
 		this.n0Annee = n0Annee;
 	}
 

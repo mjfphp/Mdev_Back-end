@@ -3,7 +3,7 @@ package fr.univbrest.dosi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,9 +23,9 @@ public class RubriqueController {
 	}
 
 	// fonction qui retourne la liste des rubriques
-	@RequestMapping(method = RequestMethod.GET)
-	public List<Rubrique> getAllQuestions() {
-		return business.GetAllRubrique();
+	@RequestMapping(method = RequestMethod.GET, value="/{NoEnseignant}")
+	public List<Rubrique> GetAllRubrique(@PathVariable("NoEnseignant") int NoEnseignant ) {
+		return business.GetAllRubrique(NoEnseignant);
 	}
 
 }

@@ -2,7 +2,6 @@ package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 
 /**
@@ -25,13 +24,13 @@ public class UniteEnseignement implements Serializable {
 	private String designation;
 
 	@Column(name="NBH_CM")
-	private BigDecimal nbhCm;
+	private int nbhCm;
 
 	@Column(name="NBH_TD")
-	private byte nbhTd;
+	private int nbhTd;
 
 	@Column(name="NBH_TP")
-	private byte nbhTp;
+	private int nbhTp;
 
 	@Column(name="SEMESTRE")
 	private String semestre;
@@ -73,27 +72,27 @@ public class UniteEnseignement implements Serializable {
 		this.designation = designation;
 	}
 
-	public BigDecimal getNbhCm() {
+	public int getNbhCm() {
 		return this.nbhCm;
 	}
 
-	public void setNbhCm(BigDecimal nbhCm) {
+	public void setNbhCm(int nbhCm) {
 		this.nbhCm = nbhCm;
 	}
 
-	public byte getNbhTd() {
+	public int getNbhTd() {
 		return this.nbhTd;
 	}
 
-	public void setNbhTd(byte nbhTd) {
+	public void setNbhTd(int nbhTd) {
 		this.nbhTd = nbhTd;
 	}
 
-	public byte getNbhTp() {
+	public int getNbhTp() {
 		return this.nbhTp;
 	}
 
-	public void setNbhTp(byte nbhTp) {
+	public void setNbhTp(int nbhTp) {
 		this.nbhTp = nbhTp;
 	}
 

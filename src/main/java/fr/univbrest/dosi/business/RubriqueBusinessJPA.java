@@ -19,9 +19,9 @@ public class RubriqueBusinessJPA implements RubriqueBusiness {
 	}
 	
 	@Override
-	public List<Rubrique> GetAllRubrique() {
+	public List<Rubrique> GetAllRubrique(int id ) {
 		// TODO Auto-generated method stub
-		return (List<Rubrique>) repo.findAll();
+		return (List<Rubrique>) repo.findRubriqueEnseignant(id);
 	}
 
 }

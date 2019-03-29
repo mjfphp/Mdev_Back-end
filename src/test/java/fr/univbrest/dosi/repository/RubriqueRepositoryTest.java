@@ -20,7 +20,7 @@ public class RubriqueRepositoryTest {
 	@Test
 	public void TestListRubriques() {
 		repo = new RubriqueRepositoryList();
-		Rubrique r1 = new Rubrique("test", "test", 0, "test", null);
+		Rubrique r1 = new Rubrique(0, "test", 0, "test", null);
 		repo.save(r1);
 		assertThat(repo.count()).isEqualTo(1);
 	}

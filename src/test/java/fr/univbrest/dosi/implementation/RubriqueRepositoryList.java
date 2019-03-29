@@ -85,4 +85,11 @@ public class RubriqueRepositoryList  implements RubriqueRepository {
 	}
 
 
+	@Override
+	public List<Rubrique> findRubriqueEnseignant(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }
