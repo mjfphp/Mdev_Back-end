@@ -35,7 +35,7 @@ public class Evaluation implements Serializable {
     private Date finReponse;
 
     @Column(name="NO_EVALUATION")
-    private byte noEvaluation;
+    private int noEvaluation;
 
     @Column(name="PERIODE")
     private String periode;
@@ -113,7 +113,7 @@ public class Evaluation implements Serializable {
         this.finReponse = finReponse;
     }
 
-    public byte getNoEvaluation() {
+    public int getNoEvaluation() {
         return this.noEvaluation;
     }
 
