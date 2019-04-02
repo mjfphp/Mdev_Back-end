@@ -5,10 +5,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import fr.univbrest.dosi.bean.Etudiant;
 import fr.univbrest.dosi.repository.EtudiantRepository;
 import fr.univbrest.dosi.implementation.EtudiantRepositoryList;
 
+@RunWith(SpringJUnit4ClassRunner.class)
 public class EtudiantBusinessJPATest {
 
 	EtudiantRepository etudiantRep;

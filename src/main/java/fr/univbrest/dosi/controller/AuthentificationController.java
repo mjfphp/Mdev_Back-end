@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.univbrest.dosi.bean.Authentification;
-import fr.univbrest.dosi.business.AuthentificationBuisnessJPA;
+import fr.univbrest.dosi.business.AuthentificationBusinessJPA;
 
 @RestController
 @RequestMapping("/users")
 public class AuthentificationController {
-    private AuthentificationBuisnessJPA authentificationBuisness;
+    private AuthentificationBusinessJPA authentificationBuisness;
    @Autowired
-   public AuthentificationController(AuthentificationBuisnessJPA business) {
+   public AuthentificationController(AuthentificationBusinessJPA business) {
        this.authentificationBuisness = business;
    }
    @GetMapping("/all")

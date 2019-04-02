@@ -18,7 +18,7 @@ public class Evaluation implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_EVALUATION")
-	private String idEvaluation;
+	private long idEvaluation;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="DEBUT_REPONSE")
@@ -73,11 +73,11 @@ public class Evaluation implements Serializable {
 	public Evaluation() {
 	}
 
-	public String getIdEvaluation() {
+	public long getIdEvaluation() {
 		return this.idEvaluation;
 	}
 
-	public void setIdEvaluation(String idEvaluation) {
+	public void setIdEvaluation(long idEvaluation) {
 		this.idEvaluation = idEvaluation;
 	}
 

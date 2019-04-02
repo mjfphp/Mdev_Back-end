@@ -29,10 +29,8 @@ public interface QuestionRepository extends CrudRepository<Question, Long> {
 
 	@Transactional
 	@Modifying
-	@Query(value = "UPDATE question q  SET q.TYPE=:type, q.NO_ENSEIGNANT=:idenseignant, q.ID_QUALIFICATIF=:idqualif, q.INTITULE= :intitule where q.ID_QUESTION=:idQuestion", nativeQuery = true)
+	@Query(value = "UPDATE question q  SET  q.ID_QUALIFICATIF=:idqualif, q.INTITULE= :intitule where q.ID_QUESTION=:idQuestion", nativeQuery = true)
 
-public 	void UpdateQuestionById(@Param("idQuestion") Long idQuestion, @Param("type") String type,
-			@Param("idenseignant") int idenseignant, @Param("idqualif") Integer idqualif,
-			@Param("intitule") String intitule);
+public 	void UpdateQuestionById(@Param("idQuestion") Long idQuestion, @Param("idqualif") Integer idqualif, @Param("intitule") String intitule);
 
 }

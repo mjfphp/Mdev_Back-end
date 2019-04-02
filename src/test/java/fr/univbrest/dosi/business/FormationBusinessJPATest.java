@@ -44,13 +44,4 @@ public class FormationBusinessJPATest extends FormationRepositoryList {
         assertThat(formationRepository.count()).isEqualTo(2);
     }
     
-    @Test
-    public void testListFormationDePromotion(){
-        FormationRepository formationRepository = new FormationRepositoryList();
-    	FormationBusinessJPA formationBusinessJPA = new FormationBusinessJPA(formationRepository, null);
-    	formationBusinessJPA.AddFormation(F1);
-    	formationBusinessJPA.AddFormation(F2);
-        assertThat(formationRepository.count()).isEqualTo(2);
-    }
-    
 }

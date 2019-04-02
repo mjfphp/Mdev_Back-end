@@ -13,7 +13,7 @@ public interface QuestionBusiness {
 	void deleteQuestion(Long idQuestion);
 
 	//la création d'une question
-	public Question createQuestion(Question question);
+	public void createQuestion(Question question);
 	
 	//la recherche d'une question par l'identifiant 
 	public Question findQuestionById(Long idQuestion );

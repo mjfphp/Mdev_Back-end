@@ -17,7 +17,7 @@ public class Rubrique implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_RUBRIQUE")
-	private String idRubrique;
+	private long idRubrique;
 
 	@Column(name="DESIGNATION")
 	private String designation;
@@ -36,11 +36,11 @@ public class Rubrique implements Serializable {
 	public Rubrique() {
 	}
 
-	public String getIdRubrique() {
+	public long getIdRubrique() {
 		return this.idRubrique;
 	}
 
-	public void setIdRubrique(String idRubrique) {
+	public void setIdRubrique(long idRubrique) {
 		this.idRubrique = idRubrique;
 	}
 

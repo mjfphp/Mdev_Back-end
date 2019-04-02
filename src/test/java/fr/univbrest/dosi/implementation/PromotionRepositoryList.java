@@ -42,6 +42,7 @@ public class PromotionRepositoryList implements PromotionRepository {
 		return null;
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public boolean exists(PromotionPK id) {
 		// TODO Auto-generated method stub
