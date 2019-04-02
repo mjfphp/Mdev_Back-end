@@ -17,11 +17,13 @@ public class PromotionBusinessJPA implements PromotionBusiness {
 		this.promotionRepository = repos;
 	}
 	
+	// fonction qui retourne la listes des promotions
 	@Override
 	public List<Promotion> GetAllPromotions() {
 		return  (List<Promotion>) promotionRepository.findAll();
 	}
 
+	// fonction qui retourne une promotion par id
 	@Override
 	public Promotion recupererPromotionParID(PromotionPK promotionPK) {
 		return this.promotionRepository.findOne(promotionPK);

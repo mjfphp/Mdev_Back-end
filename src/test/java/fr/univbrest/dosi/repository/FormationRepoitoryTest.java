@@ -34,9 +34,6 @@ public class FormationRepoitoryTest extends FormationRepositoryList {
 		formationRepository.save(F1);
 		formationRepository.save(F2);
 		List<Formation> Formations = (List<Formation>) formationRepository.findAll();
-
-		assertThat(Formations).hasSize(2);
-
 		assertThat(Formations.size()).isEqualTo(2);
 	}
    

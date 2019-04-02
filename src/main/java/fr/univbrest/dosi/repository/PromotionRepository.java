@@ -10,9 +10,9 @@ import fr.univbrest.dosi.bean.Promotion;
 import fr.univbrest.dosi.bean.PromotionPK;
 
 @Repository
-
 public interface PromotionRepository extends CrudRepository<Promotion, PromotionPK>{
 	
+	// fonction qui retourne toutes les promotions d'une formation
 	@Query(value = "select * from promotion where code_formation = ?1", nativeQuery = true)
 	List<Promotion> findAllPromotionByCodeFormation(String idFormation);
 	

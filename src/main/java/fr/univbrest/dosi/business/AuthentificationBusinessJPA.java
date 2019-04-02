@@ -18,13 +18,21 @@ public class AuthentificationBusinessJPA {
             this.authentificationRepository = repos;
         }
         
+        // fonction qui retourne tous les utilisateurs
         public List<Authentification> recupererTousLesusers() {
             return (List<Authentification>) authentificationRepository.findAll();
         }
         
-        public Authentification SearchByEmail(String email) {
-            List<Authentification> liste = authentificationRepository.findAll();
-            return liste.stream().filter(t -> t.getLoginConnection().equals(email)).findFirst().get();
+        // fonction qui retourne l'utilisateur par email ou pseaudo
+        public Authentification SearchByEmail(String email) throws Exception {
+        	Authentification user = authentificationRepository.findByLoginConnection(email);
+        	System.out.println(user);
+        	if(user==null) {
+        		 user = authentificationRepository.findByPseudoConnection(email);
+        	System.out.println("1 : "+user);}
+        	if(user!=null) {System.out.println("1 : "+user);return user;}
+        	else
+        		return new Authentification();
         }
         
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,6 @@ import fr.univbrest.dosi.bean.Question;
 import fr.univbrest.dosi.business.QuestionBusiness;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/Questions")
 public class QuestionController {
 
@@ -27,43 +25,43 @@ public class QuestionController {
 		this.business = business;
 	}
 
-	// Get All Questions
+	// fonction qui retourne la liste des questions
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Question> getAllQuestions() {
 		return business.GetAllQuestions();
 	}
 
-	// Get Questions By Id
+	// fonction qui cherche une question par Id
 	@RequestMapping(method = RequestMethod.GET, value = "/id/{id}")
 	public Question getQuestionById(@PathVariable("id") Long idQuestion) {
 		return business.findQuestionById(idQuestion);
 	}
 
-	// Get Questions By Intitule
+	// fonction qui cherche une question par intitulé
 	@RequestMapping(method = RequestMethod.GET, value = "/intitule/{intitule}")
 	public List<Question> getQuestionByIntitule(@PathVariable("intitule") String intitule) {
 		return business.findQuestionByIntitule(intitule);
 	}
 
-	// Get Questions By Type
+	// fonction qui cherche une question par type
 	@RequestMapping(method = RequestMethod.GET, value = "/type/{type}")
 	public List<Question> getQuestionByType(@PathVariable("type") String type) {
 		return business.findQuestionByType(type);
 	}
 
-	// Create a new Question
+	// fonction qui ajoute une question
 	@RequestMapping(method = RequestMethod.POST)
 	public void createQuestion(@RequestBody Question question) {
 		business.createQuestion(question);
 	}
 
-	// update a Question
+	// fonction qui modifie une question
 	@RequestMapping(method = RequestMethod.PUT)
 	public Question updateQuestion(@RequestBody Question question) {
 		return business.updateQuestionById(question);
 	}
 
-	// Delete a Question By Id
+	// fonction qui supprime une question
 	@RequestMapping(method = RequestMethod.DELETE)
 	public ResponseEntity<?> deleteQualificatifById(@RequestBody Question question) {
 

@@ -1,6 +1,8 @@
 package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import javax.persistence.*;
 
 
@@ -24,13 +26,13 @@ public class ElementConstitutif implements Serializable {
 	private String designation;
 
 	@Column(name="NBH_CM")
-	private byte nbhCm;
+	private int nbhCm;
 
 	@Column(name="NBH_TD")
-	private byte nbhTd;
+	private int nbhTd;
 
 	@Column(name="NBH_TP")
-	private byte nbhTp;
+	private int nbhTp;
 
 	//uni-directional many-to-one association to Enseignant
 	@ManyToOne
@@ -72,27 +74,27 @@ public class ElementConstitutif implements Serializable {
 		this.designation = designation;
 	}
 
-	public byte getNbhCm() {
+	public int getNbhCm() {
 		return this.nbhCm;
 	}
 
-	public void setNbhCm(byte nbhCm) {
+	public void setNbhCm(int nbhCm) {
 		this.nbhCm = nbhCm;
 	}
 
-	public byte getNbhTd() {
-		return this.nbhTd;
+	public int getNbhTd() {
+		return  this.nbhTd;
 	}
 
-	public void setNbhTd(byte nbhTd) {
+	public void setNbhTd(int nbhTd) {
 		this.nbhTd = nbhTd;
 	}
 
-	public byte getNbhTp() {
+	public int getNbhTp() {
 		return this.nbhTp;
 	}
 
-	public void setNbhTp(byte nbhTp) {
+	public void setNbhTp(int nbhTp) {
 		this.nbhTp = nbhTp;
 	}
 

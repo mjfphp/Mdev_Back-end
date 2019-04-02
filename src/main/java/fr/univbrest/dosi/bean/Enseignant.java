@@ -17,7 +17,7 @@ public class Enseignant implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="NO_ENSEIGNANT")
-	private int noEnseignant;
+	private Integer noEnseignant;
 
 	@Column(name="ADRESSE")
 	private String adresse;
@@ -57,12 +57,18 @@ public class Enseignant implements Serializable {
 
 	public Enseignant() {
 	}
-
-	public int getNoEnseignant() {
+	
+	public Enseignant(Integer noEnseignant, String nom, String prenom) {
+		this.noEnseignant = noEnseignant;
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+	
+	public Integer getNoEnseignant() {
 		return this.noEnseignant;
 	}
 
-	public void setNoEnseignant(int noEnseignant) {
+	public void setNoEnseignant(Integer noEnseignant) {
 		this.noEnseignant = noEnseignant;
 	}
 

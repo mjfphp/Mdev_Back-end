@@ -17,13 +17,13 @@ public class Rubrique implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="ID_RUBRIQUE")
-	private long idRubrique;
+	private int idRubrique;
 
 	@Column(name="DESIGNATION")
 	private String designation;
 
 	@Column(name="ORDRE")
-	private double ordre;
+	private int ordre;
 
 	@Column(name="TYPE")
 	private String type;
@@ -35,12 +35,25 @@ public class Rubrique implements Serializable {
 
 	public Rubrique() {
 	}
+	
+	
+
+	public Rubrique(int idRubrique, String designation, int ordre, String type, Enseignant enseignant) {
+		super();
+		this.idRubrique = idRubrique;
+		this.designation = designation;
+		this.ordre = ordre;
+		this.type = type;
+		this.enseignant = enseignant;
+	}
+
+
 
 	public long getIdRubrique() {
 		return this.idRubrique;
 	}
 
-	public void setIdRubrique(long idRubrique) {
+	public void setIdRubrique(int idRubrique) {
 		this.idRubrique = idRubrique;
 	}
 
@@ -52,11 +65,11 @@ public class Rubrique implements Serializable {
 		this.designation = designation;
 	}
 
-	public double getOrdre() {
+	public int getOrdre() {
 		return this.ordre;
 	}
 
-	public void setOrdre(double ordre) {
+	public void setOrdre(int ordre) {
 		this.ordre = ordre;
 	}
 

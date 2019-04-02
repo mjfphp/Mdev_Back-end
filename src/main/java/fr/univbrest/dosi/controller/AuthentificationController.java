@@ -14,19 +14,24 @@ import fr.univbrest.dosi.business.AuthentificationBusinessJPA;
 @RestController
 @RequestMapping("/users")
 public class AuthentificationController {
-    private AuthentificationBusinessJPA authentificationBuisness;
-   @Autowired
-   public AuthentificationController(AuthentificationBusinessJPA business) {
-       this.authentificationBuisness = business;
-   }
-   @GetMapping("/all")
-   public List<Authentification> recupererTousLesusers(){
-       return authentificationBuisness.recupererTousLesusers();
-   }
-   @GetMapping("/email/{em:.+}")
-public Authentification SearchByEmail(@PathVariable("em") String em) {
-       System.out.println(em);
-       return authentificationBuisness.SearchByEmail(em);
-   }
+	private AuthentificationBusinessJPA authentificationBuisness;
+
+	@Autowired
+	public AuthentificationController(AuthentificationBusinessJPA business) {
+		this.authentificationBuisness = business;
+	}
+
+	//fonction qui affiche tout les utilisateurs
+	@GetMapping("/all")
+	public List<Authentification> recupererTousLesusers() {
+		return authentificationBuisness.recupererTousLesusers();
+	}
+//em:.+
+	//fonction qui cherche un utilisateur par email
+	@GetMapping("/email/{em:.+}")
+	public Authentification SearchByEmail(@PathVariable("em") String em)  throws Exception {
+		
+		return authentificationBuisness.SearchByEmail(em);
+	}
 
 }

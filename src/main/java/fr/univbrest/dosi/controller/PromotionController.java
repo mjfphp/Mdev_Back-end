@@ -23,11 +23,13 @@ public class PromotionController {
 		this.business = business;
 	}
 	
+	// fonction qui retourne toutes les promotions
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Promotion> GetAllPromotions(){
 		return business.GetAllPromotions();
 	}
 	
+	// fonction qui retourne une promotion par Id
 	@RequestMapping(method = RequestMethod.GET, value = "/codeFormation/{codeFormation}/anneeUniversitaire/{anneeUniversitaire}")
     public Promotion recupererPromotionParCode(@PathVariable("codeFormation") String codeFormation, @PathVariable("anneeUniversitaire") String anneeUniversitaire){
         PromotionPK promotionPK = new PromotionPK(anneeUniversitaire,codeFormation);
