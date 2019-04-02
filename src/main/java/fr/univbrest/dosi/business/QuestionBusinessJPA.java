@@ -37,8 +37,8 @@ public class QuestionBusinessJPA implements QuestionBusiness {
 	
 	//la création d'une question
 	@Override
-	public Question createQuestion(Question question) {
-		return questionRepository.save(question);
+	public void createQuestion(Question question) {
+		 questionRepository.save(question);
 	}
 
 	//la recherche d'une question par l'identifiant 

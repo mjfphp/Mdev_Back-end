@@ -9,4 +9,5 @@ target/
 *.iml
 .eclipse
 log/
+log/logfile.log
 #/src/main/resources/application.properties
