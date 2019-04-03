@@ -1,166 +1,169 @@
 package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+
 import javax.persistence.*;
 
+import org.hibernate.annotations.JoinColumnOrFormula;
+import org.hibernate.annotations.JoinFormula;
+import org.hibernate.annotations.JoinColumnsOrFormulas;
 
 import java.util.Date;
 
 
 /**
-* The persistent class for the evaluation database table.
-*
-*/
+ * The persistent class for the evaluation database table.
+ * 
+ */
 @Entity
 @Table(name="evaluation")
 @NamedQuery(name="Evaluation.findAll", query="SELECT e FROM Evaluation e")
 public class Evaluation implements Serializable {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="ID_EVALUATION")
-    private Integer idEvaluation;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID_EVALUATION")
+	private BigInteger idEvaluation;
 
-    @Temporal(TemporalType.DATE)
-    @Column(name="DEBUT_REPONSE")
-    private Date debutReponse;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="DEBUT_REPONSE")
+	private Date debutReponse;
 
-    @Column(name="DESIGNATION")
-    private String designation;
+	private String designation;
 
-    @Column(name="ETAT")
-    private String etat;
+	private String etat;
 
-   @Temporal(TemporalType.DATE)
-    @Column(name="FIN_REPONSE")
-    private Date finReponse;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="FIN_REPONSE")
+	private Date finReponse;
 
-    @Column(name="NO_EVALUATION")
-    private int noEvaluation;
+	@Column(name="NO_EVALUATION", nullable=true)
+	private byte noEvaluation;
 
-    @Column(name="PERIODE")
-    private String periode;
+	private String periode;
 
-    //uni-directional many-to-one association to ElementConstitutif
-    @ManyToOne
-    @JoinColumns({
-        @JoinColumn(name="CODE_EC", referencedColumnName="CODE_EC", insertable=false, updatable=false),
-        @JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION", insertable=false, updatable=false),
-        @JoinColumn(name="CODE_UE", referencedColumnName="CODE_UE", insertable=false, updatable=false)
-        })
-    private ElementConstitutif elementConstitutif;
+	//uni-directional many-to-one association to ElementConstitutif
+	@ManyToOne
+	@JoinColumnsOrFormulas(value = {
+	        @JoinColumnOrFormula(column = @JoinColumn(name="CODE_EC", referencedColumnName="CODE_EC")),
+	        @JoinColumnOrFormula(formula = @JoinFormula(value="CODE_FORMATION", referencedColumnName="CODE_FORMATION")),
+	        @JoinColumnOrFormula(formula = @JoinFormula(value="CODE_UE", referencedColumnName="CODE_UE"))
+	        }) 
 
-    //uni-directional many-to-one association to Enseignant
-    @ManyToOne
-    @JoinColumn(name="NO_ENSEIGNANT")
-    private Enseignant enseignant;
+	private ElementConstitutif elementConstitutif;
 
-    //uni-directional many-to-one association to Promotion
-    @ManyToOne
-    @JoinColumns({
-        @JoinColumn(name="ANNEE_UNIVERSITAIRE", referencedColumnName="ANNEE_UNIVERSITAIRE", insertable=false, updatable=false),
-        @JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION", insertable=false, updatable=false)
-        })
-    private Promotion promotion;
+	//uni-directional many-to-one association to Enseignant
+	@ManyToOne
+	@JoinColumn(name="NO_ENSEIGNANT")
+	private Enseignant enseignant;
 
-    //uni-directional many-to-one association to UniteEnseignement
-    @ManyToOne
-    @JoinColumns({
-        @JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION"),
-        @JoinColumn(name="CODE_UE", referencedColumnName="CODE_UE")
-        })
-    private UniteEnseignement uniteEnseignement;
+	//uni-directional many-to-one association to Promotion
+	@ManyToOne
+	@JoinColumns({
+		@JoinColumn(name="ANNEE_UNIVERSITAIRE", referencedColumnName="ANNEE_UNIVERSITAIRE"),
+		@JoinColumn(name="CODE_FORMATION", referencedColumnName="CODE_FORMATION")
+		})
+	private Promotion promotion;
 
-    public Evaluation() {
-    }
+	//uni-directional many-to-one association to UniteEnseignement
+	@ManyToOne
+	@JoinColumnsOrFormulas({
+		@JoinColumnOrFormula(formula = @JoinFormula(value="CODE_FORMATION", referencedColumnName="CODE_FORMATION")),
+		@JoinColumnOrFormula(column = @JoinColumn(name="CODE_UE", referencedColumnName="CODE_UE"))
+		})
+	private UniteEnseignement uniteEnseignement;
 
-    public Integer getIdEvaluation() {
-        return this.idEvaluation;
-    }
+	public Evaluation() {
+	}
 
-    public void setIdEvaluation(Integer idEvaluation) {
-        this.idEvaluation = idEvaluation;
-    }
+	public BigInteger getIdEvaluation() {
+		return this.idEvaluation;
+	}
 
-    public Date getDebutReponse() {
-        return this.debutReponse;
-    }
+	public void setIdEvaluation(BigInteger idEvaluation) {
+		this.idEvaluation = idEvaluation;
+	}
 
-    public void setDebutReponse(Date debutReponse) {
-        this.debutReponse = debutReponse;
-    }
+	public Date getDebutReponse() {
+		return this.debutReponse;
+	}
 
-    public String getDesignation() {
-        return this.designation;
-    }
+	public void setDebutReponse(Date debutReponse) {
+		this.debutReponse = debutReponse;
+	}
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
-    }
+	public String getDesignation() {
+		return this.designation;
+	}
 
-    public String getEtat() {
-        return this.etat;
-    }
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
 
-    public void setEtat(String etat) {
-        this.etat = etat;
-    }
+	public String getEtat() {
+		return this.etat;
+	}
 
-    public Date getFinReponse() {
-        return this.finReponse;
-    }
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
 
-    public void setFinReponse(Date finReponse) {
-        this.finReponse = finReponse;
-    }
+	public Date getFinReponse() {
+		return this.finReponse;
+	}
 
-    public int getNoEvaluation() {
-        return this.noEvaluation;
-    }
+	public void setFinReponse(Date finReponse) {
+		this.finReponse = finReponse;
+	}
 
-    public void setNoEvaluation(int noEvaluation) {
-        this.noEvaluation = noEvaluation;
-    }
+	public byte getNoEvaluation() {
+		return this.noEvaluation;
+	}
 
-    public String getPeriode() {
-        return this.periode;
-    }
+	public void setNoEvaluation(byte noEvaluation) {
+		this.noEvaluation = noEvaluation;
+	}
 
-    public void setPeriode(String periode) {
-        this.periode = periode;
-    }
+	public String getPeriode() {
+		return this.periode;
+	}
 
-    public ElementConstitutif getElementConstitutif() {
-        return this.elementConstitutif;
-    }
+	public void setPeriode(String periode) {
+		this.periode = periode;
+	}
 
-    public void setElementConstitutif(ElementConstitutif elementConstitutif) {
-        this.elementConstitutif = elementConstitutif;
-    }
+	public ElementConstitutif getElementConstitutif() {
+		return this.elementConstitutif;
+	}
 
-    public Enseignant getEnseignant() {
-        return this.enseignant;
-    }
+	public void setElementConstitutif(ElementConstitutif elementConstitutif) {
+		this.elementConstitutif = elementConstitutif;
+	}
 
-    public void setEnseignant(Enseignant enseignant) {
-        this.enseignant = enseignant;
-    }
+	public Enseignant getEnseignant() {
+		return this.enseignant;
+	}
 
-    public Promotion getPromotion() {
-        return this.promotion;
-    }
+	public void setEnseignant(Enseignant enseignant) {
+		this.enseignant = enseignant;
+	}
 
-    public void setPromotion(Promotion promotion) {
-        this.promotion = promotion;
-    }
+	public Promotion getPromotion() {
+		return this.promotion;
+	}
 
-    public UniteEnseignement getUniteEnseignement() {
-        return this.uniteEnseignement;
-    }
+	public void setPromotion(Promotion promotion) {
+		this.promotion = promotion;
+	}
 
-    public void setUniteEnseignement(UniteEnseignement uniteEnseignement) {
-        this.uniteEnseignement = uniteEnseignement;
-    }
+	public UniteEnseignement getUniteEnseignement() {
+		return this.uniteEnseignement;
+	}
+
+	public void setUniteEnseignement(UniteEnseignement uniteEnseignement) {
+		this.uniteEnseignement = uniteEnseignement;
+	}
 
 }
