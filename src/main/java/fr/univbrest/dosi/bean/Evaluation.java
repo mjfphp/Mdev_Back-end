@@ -2,6 +2,9 @@ package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.datetime.standard.DateTimeContext;
+
 import java.util.Date;
 
 
@@ -117,7 +120,7 @@ public class Evaluation implements Serializable {
         return this.noEvaluation;
     }
 
-    public void setNoEvaluation(byte noEvaluation) {
+    public void setNoEvaluation(int noEvaluation) {
         this.noEvaluation = noEvaluation;
     }
 

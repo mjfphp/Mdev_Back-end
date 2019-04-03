@@ -71,7 +71,9 @@ public class EvaluationBusinessJPA implements EvaluationBusiness {
 	@Override
 	public List<Evaluation> GetAllEvaluation(int idenseignant) {
 
-		return (List<Evaluation>) evaluationRepository.findAllEvaluationByEnseignant(idenseignant);
+	return (List<Evaluation>) evaluationRepository.findAllEvaluationByEnseignant(idenseignant);
+	  //return (List<Evaluation>) evaluationRepository.findAll();
+
 	}
 
 	// fonction qui retourne la liste des evaluations
