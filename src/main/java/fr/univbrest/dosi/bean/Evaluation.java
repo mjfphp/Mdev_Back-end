@@ -3,7 +3,6 @@ package fr.univbrest.dosi.bean;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import org.springframework.format.datetime.standard.DateTimeContext;
 
 import java.util.Date;
 
@@ -23,7 +22,7 @@ public class Evaluation implements Serializable {
     @Column(name="ID_EVALUATION")
     private Integer idEvaluation;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name="DEBUT_REPONSE")
     private Date debutReponse;
 
@@ -33,7 +32,7 @@ public class Evaluation implements Serializable {
     @Column(name="ETAT")
     private String etat;
 
-    @Temporal(TemporalType.TIMESTAMP)
+   @Temporal(TemporalType.DATE)
     @Column(name="FIN_REPONSE")
     private Date finReponse;
 

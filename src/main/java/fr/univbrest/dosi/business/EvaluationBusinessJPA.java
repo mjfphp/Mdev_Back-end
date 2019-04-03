@@ -1,18 +1,9 @@
 package fr.univbrest.dosi.business;
 
-import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
-
-import fr.univbrest.dosi.bean.ElementConstitutif;
-import fr.univbrest.dosi.bean.ElementConstitutifPK;
-import fr.univbrest.dosi.bean.Enseignant;
 import fr.univbrest.dosi.bean.Evaluation;
-import fr.univbrest.dosi.bean.Promotion;
-import fr.univbrest.dosi.bean.PromotionPK;
 import fr.univbrest.dosi.repository.EvaluationRepository;
 
 @Service
@@ -72,7 +63,7 @@ public class EvaluationBusinessJPA implements EvaluationBusiness {
 	public List<Evaluation> GetAllEvaluation(int idenseignant) {
 
 	return (List<Evaluation>) evaluationRepository.findAllEvaluationByEnseignant(idenseignant);
-	  //return (List<Evaluation>) evaluationRepository.findAll();
+	// return (List<Evaluation>) evaluationRepository.findAll();
 
 	}
 

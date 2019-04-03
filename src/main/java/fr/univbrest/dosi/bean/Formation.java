@@ -22,7 +22,7 @@ public class Formation implements Serializable {
 	@Column(name="CODE_FORMATION")
 	private String codeFormation;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name="DEBUT_ACCREDITATION")
 	private Date debutAccreditation;
 
@@ -32,7 +32,7 @@ public class Formation implements Serializable {
 	@Column(name="DOUBLE_DIPLOME")
 	private String doubleDiplome;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name="FIN_ACCREDITATION")
 	private Date finAccreditation;
 
