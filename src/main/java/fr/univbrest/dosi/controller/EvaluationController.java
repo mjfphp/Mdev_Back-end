@@ -29,7 +29,7 @@ public class EvaluationController {
 	// fonction qui retourne la liste des �valuations
 	@RequestMapping(method = RequestMethod.GET,value="{NoEnseignant}")
 	
-	public List<Evaluation> GetAllEvaluation(@PathVariable("NoEnseignant") int noenseignant ){
+	public List<Evaluation> GetAllEvaluation(@PathVariable("NoEnseignant") Integer noenseignant ){
 
 		return business.GetAllEvaluation(noenseignant);
 	}

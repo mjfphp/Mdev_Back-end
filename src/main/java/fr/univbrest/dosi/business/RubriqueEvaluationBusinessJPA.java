@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import fr.univbrest.dosi.bean.Rubrique;
 import fr.univbrest.dosi.bean.RubriqueEvaluation;
 import fr.univbrest.dosi.repository.RubriqueEvaluationRepository;
 

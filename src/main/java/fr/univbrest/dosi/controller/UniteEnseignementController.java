@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import fr.univbrest.dosi.bean.QuestionEvaluation;
 import fr.univbrest.dosi.bean.UniteEnseignement;
 import fr.univbrest.dosi.business.UniteEnseignementBusiness;
 

@@ -1,7 +1,6 @@
 package fr.univbrest.dosi.bean;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 import javax.persistence.*;
 

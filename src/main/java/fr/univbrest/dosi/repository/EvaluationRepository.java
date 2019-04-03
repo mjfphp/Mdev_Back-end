@@ -1,22 +1,17 @@
 package fr.univbrest.dosi.repository;
 
-import java.util.Date;
 import java.util.List;
-
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import fr.univbrest.dosi.bean.Evaluation;
 
 @Repository
 public interface EvaluationRepository extends CrudRepository<Evaluation, Integer>{
 
-	@Query(value = "SELECT * FROM evaluation WHERE NO_ENSEIGNANT=?1 ORDER BY NO_EVALUATION", nativeQuery = true)
-	List <Evaluation> findAllEvaluationByEnseignant(int noenseignant);
+	@Query(value = "SELECT evaluation.* FROM `evaluation` WHERE NO_ENSEIGNANT=?1 ", nativeQuery = true)
+	List <Evaluation> findAllEvaluationByEnseignant(Integer noenseignant);
 
 //	// fonction qui creer une evaluation 
 //		@Transactional
