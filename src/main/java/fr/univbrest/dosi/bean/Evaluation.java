@@ -27,7 +27,7 @@ public class Evaluation implements Serializable {
 	@Column(name="ID_EVALUATION")
 	private BigInteger idEvaluation;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name="DEBUT_REPONSE")
 	private Date debutReponse;
 
@@ -35,7 +35,7 @@ public class Evaluation implements Serializable {
 
 	private String etat;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name="FIN_REPONSE")
 	private Date finReponse;
 
