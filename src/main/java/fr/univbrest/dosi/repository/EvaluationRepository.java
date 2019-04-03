@@ -23,12 +23,12 @@ public interface EvaluationRepository extends CrudRepository<Evaluation, Integer
 		@Modifying
 		@Query(value = "INSERT INTO `evaluation`(`NO_ENSEIGNANT`, `CODE_FORMATION`, `ANNEE_UNIVERSITAIRE`, `CODE_UE`, `CODE_EC`, `NO_EVALUATION`, `DESIGNATION`, `ETAT`, `PERIODE`, `DEBUT_REPONSE`, `FIN_REPONSE`) VALUES (:NO_ENSEIGNANT, :CODE_FORMATION, :ANNEE_UNIVERSITAIRE, :CODE_UE, :CODE_EC, :NO_EVALUATION, :DESIGNATION, :ETAT, :PERIODE, :DEBUT_REPONSE, :FIN_REPONSE) ", nativeQuery = true)
 		public void CreateEvaluation(
-				@Param("NO_EVALUATION") int NO_EVALUATION,
 				@Param("NO_ENSEIGNANT") int NO_ENSEIGNANT, 
 				@Param("CODE_FORMATION") String CODE_FORMATION,
 				@Param("ANNEE_UNIVERSITAIRE") String ANNEE_UNIVERSITAIRE,
 				@Param("CODE_UE") String CODE_UE,
 				@Param("CODE_EC") String CODE_EC,
+				@Param("NO_EVALUATION") int NO_EVALUATION,
 				@Param("DESIGNATION") String DESIGNATION,
 				@Param("ETAT") String ETAT,
 				@Param("PERIODE") String PERIODE,

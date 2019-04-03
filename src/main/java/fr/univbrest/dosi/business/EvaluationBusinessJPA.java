@@ -3,6 +3,7 @@ package fr.univbrest.dosi.business;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import fr.univbrest.dosi.bean.ElementConstitutif;
@@ -28,33 +29,47 @@ public class EvaluationBusinessJPA implements EvaluationBusiness {
 	@Override
 	public Evaluation AddEvaluation(Evaluation evaluation) {
 
-		 Enseignant e = new Enseignant();
-			e = evaluation.getEnseignant();
-			int NO_ENSEIGNANT = e.getNoEnseignant();
-			int NO_EVALUATION = evaluation.getNoEvaluation();
-			ElementConstitutif ec = new ElementConstitutif();
-			ElementConstitutifPK ecpk = new ElementConstitutifPK();
-
-			ec = evaluation.getElementConstitutif();
-			ecpk = ec.getId();
-			String CODE_UE = ecpk.getCodeUe();
-			String CODE_EC = ecpk.getCodeEc();
-
-			Promotion p = new Promotion();
-			PromotionPK ppk = new PromotionPK();
-			p = evaluation.getPromotion();
-			ppk = p.getId();
-			String CODE_FORMATION = ppk.getCodeFormation();
-			String ANNEE_UNIVERSITAIRE = ppk.getAnneeUniversitaire();
-
-			String DESIGNATION = evaluation.getDesignation();
-			String ETAT = evaluation.getEtat();
-			String PERIODE = evaluation.getPeriode();
-			Date DEBUT_REPONSE = evaluation.getDebutReponse();
-			Date FIN_REPONSE = evaluation.getFinReponse();
-
-			evaluationRepository.CreateEvaluation(NO_ENSEIGNANT,NO_EVALUATION, CODE_FORMATION, ANNEE_UNIVERSITAIRE,
-					CODE_UE, CODE_EC, DESIGNATION, ETAT, PERIODE, DEBUT_REPONSE, FIN_REPONSE);
+//		 Enseignant e = new Enseignant();
+//			e = evaluation.getEnseignant();
+//			int NO_ENSEIGNANT = e.getNoEnseignant();
+//			int NO_EVALUATION = evaluation.getNoEvaluation();
+//			ElementConstitutif ec = new ElementConstitutif();
+//			ElementConstitutifPK ecpk = new ElementConstitutifPK();
+//
+//			ec = evaluation.getElementConstitutif();
+//			ecpk = ec.getId();
+//			String CODE_UE = ecpk.getCodeUe();
+//			String CODE_EC = ecpk.getCodeEc();
+//
+//			Promotion p = new Promotion();
+//			PromotionPK ppk = new PromotionPK();
+//			p = evaluation.getPromotion();
+//			ppk = p.getId();
+//			String CODE_FORMATION = ppk.getCodeFormation();
+//			String ANNEE_UNIVERSITAIRE = ppk.getAnneeUniversitaire();
+//
+//			String DESIGNATION = evaluation.getDesignation();
+//			String ETAT = evaluation.getEtat();
+//			String PERIODE = evaluation.getPeriode();
+//			Date DEBUT_REPONSE = evaluation.getDebutReponse();
+//			Date FIN_REPONSE = evaluation.getFinReponse();
+//
+//			evaluationRepository.CreateEvaluation(NO_ENSEIGNANT, CODE_FORMATION, ANNEE_UNIVERSITAIRE,
+//					CODE_UE, CODE_EC, NO_EVALUATION,DESIGNATION, ETAT, PERIODE, DEBUT_REPONSE, FIN_REPONSE);
+		
+			evaluationRepository.CreateEvaluation(
+					evaluation.getEnseignant().getNoEnseignant(), 
+					evaluation.getPromotion().getId().getCodeFormation(),
+					evaluation.getPromotion().getId().getAnneeUniversitaire(),
+					evaluation.getElementConstitutif().getId().getCodeUe(),
+					evaluation.getElementConstitutif().getId().getCodeEc(),
+					evaluation.getNoEvaluation(),
+					evaluation.getDesignation(),
+					evaluation.getEtat(),
+					evaluation.getPeriode(),
+					evaluation.getDebutReponse(),
+					evaluation.getFinReponse()
+					);
 		
 		
 			return evaluation;
